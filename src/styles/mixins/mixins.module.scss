@@ -1,0 +1,7 @@
+@import "../variables/variables.module.scss";
+
+@mixin title() {
+	font-size: 3rem;
+	font-weight: 900;
+	color: $bg-primary;
+}
