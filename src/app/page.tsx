@@ -2,7 +2,7 @@
 export default function Home(): JSX.Element {
   return (
     <>
-      <h1>Hola mundo!</h1>
+      {/* <h1>Hola mundo!</h1> */}
     </>
   )
 }
