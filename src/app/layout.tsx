@@ -5,7 +5,6 @@ import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
 import Nav from '@/components/layout/Nav/Nav'
 import { type LinkNav } from '@/types/types'
-import { prompt } from './fonts'
 
 const authors: Author = {
   name: 'Rubert Gonzalez',
@@ -31,7 +30,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="es" >
-      <body className={`${prompt.variable} ${prompt.className}`}>
+      <body>
         <MouseAnimation />
         <Nav items={itemsNav} />
         {children}

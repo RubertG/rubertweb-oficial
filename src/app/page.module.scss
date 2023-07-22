@@ -1,0 +1,45 @@
+@import "../styles/variables/variables.module.scss";
+@import "../styles/mixins/mixins.module.scss";
+
+.header {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	min-height: 100dvh;
+	margin: 0 10px;
+	gap: 30px;
+
+	.content {
+		h2 {
+			@include title();
+
+			span {
+				color: $primary;
+			}
+		}
+		p {
+			font-family: prompt_regular;
+			letter-spacing: 0.6px;
+			margin-top: 15px;
+			font-size: 1rem;
+			color: $text-dark;
+		}
+
+		.buttons {
+			margin-top: 15px;
+			display: flex;
+			gap: 15px;
+			align-items: center;
+			justify-content: flex-end;
+		}
+	}
+
+	svg {
+		width: 270px;
+		height: 270px;
+		border-radius: 100%;
+		box-shadow: 0px 0px 150px 0px rgba(123, 31, 162, 0.2);
+	}
+}

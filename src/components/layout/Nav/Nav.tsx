@@ -4,7 +4,7 @@ import { type LinkNav } from '@/types/types'
 import Link from 'next/link'
 import Styles from './Nav.module.scss'
 import { useEffect, useRef, useState } from 'react'
-import Arrow from '@/components/Icons/Icons'
+import { Arrow } from '@/components/Icons/Icons'
 import { usePathname } from 'next/navigation'
 
 interface Props {
