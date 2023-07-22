@@ -10,4 +10,6 @@
 body {
 	background-color: $bg-primary;
 	color: $text-white;
+	font-family: var(--font-prompt);
+	font-weight: 400;
 }

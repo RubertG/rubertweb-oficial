@@ -3,15 +3,9 @@ import MouseAnimation from '@/components/MouseAnimation/MouseAnimation'
 import './globals.scss'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
-import { Prompt } from 'next/font/google'
 import Nav from '@/components/layout/Nav/Nav'
 import { type LinkNav } from '@/types/types'
-
-export const prompt = Prompt({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  style: 'normal'
-})
+import { prompt } from './fonts'
 
 const authors: Author = {
   name: 'Rubert Gonzalez',
@@ -37,7 +31,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="es" >
-      <body className={prompt.className}>
+      <body className={`${prompt.variable} ${prompt.className}`}>
         <MouseAnimation />
         <Nav items={itemsNav} />
         {children}

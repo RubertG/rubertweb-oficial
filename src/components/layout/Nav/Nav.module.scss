@@ -51,10 +51,12 @@
 	transform: translateX(-100%);
 	transition: all 0.2s;
 
-	h1 {
+	.brand {
 		color: $primary;
+		text-decoration: none;
 		letter-spacing: 1.5px;
-		font-weight: 900;
+		font-weight: 700;
+		display: block;
 		text-align: center;
 		font-size: 1.7rem;
 	}
@@ -74,6 +76,7 @@
 				font-size: 0.9rem;
 				font-weight: 600;
 				color: $text-dark;
+				letter-spacing: 1px;
 				border-bottom: 1px solid $bg-secondary;
 
 				svg path {
@@ -92,5 +95,78 @@
 	&.active {
 		box-shadow: 0 0 130px 30px $bg-nav;
 		transform: translateX(0);
+	}
+}
+
+@media (min-width: 764px) {
+	.toggler {
+		display: none;
+	}
+
+	.nav {
+		position: fixed;
+		background-color: inherit;
+		width: 100%;
+		height: auto;
+		max-width: none;
+		margin: auto;
+		padding: 10px 30px;
+		transform: translateX(0%);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: $bg-primary;
+		z-index: 100;
+
+		.brand {
+			cursor: pointer;
+			font-weight: 500;
+			font-size: 1.3rem;
+			letter-spacing: 1.6px;
+		}
+
+		ul {
+			margin: 0;
+			display: flex;
+
+			.hover_div {
+				--top: 10px;
+				--width: 10px;
+				--left: 10px;
+				--height: 10px;
+				position: fixed;
+				background-color: #ffffff2c;
+				top: var(--top);
+				left: var(--left);
+				width: var(--width);
+				height: var(--height);
+				border-radius: 5px;
+				z-index: -1;
+				opacity: 0;
+				transition: all 0.2s ease-in-out;
+			}
+
+			li {
+				a {
+					padding: 7px 20px;
+					height: 100%;
+					font-weight: 400;
+					font-size: 1rem;
+					color: $text-dark;
+					border-bottom: none;
+					transition: color 0.2s;
+
+					svg {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.nav {
+		padding: 10px 80px;
 	}
 }
