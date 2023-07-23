@@ -59,7 +59,12 @@ function Nav({ items }: Props): JSX.Element {
         <span></span><span></span><span></span>
       </button>
       <nav className={`${Styles.nav} ${toggler ? Styles.active : ''}`}>
-        <Link href="/" className={Styles.brand}>RubertWeb</Link>
+        <Link
+          href="/"
+          onClick={() => { setToggler(false) }}
+          className={Styles.brand}>
+          RubertWeb
+        </Link>
         <ul>
           <div
             className={Styles.hover_div}

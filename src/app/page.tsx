@@ -9,7 +9,13 @@ export default function Home(): JSX.Element {
       <div className={Styles.content}>
         <h2>
           ¡Hola mundo!<br />
-          Soy <span>Rubert Gonzalez</span>
+          <span className={Styles.container_typing}>
+            Soy
+            <ul>
+              <li><span>Rubert Gonzalez</span></li>
+              <li><span>Programador web</span></li>
+            </ul>
+          </span>
         </h2>
         <p>Desarrollador web front-end. Hábil en el desarrollo de aplicaciones creativas con un diseño vanguardista. Si necesitas mis servicios estoy disponible para que me contactes.</p>
         <div className={Styles.buttons}>

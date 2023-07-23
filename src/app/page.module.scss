@@ -1,6 +1,9 @@
 @import "../styles/variables/variables.module.scss";
 @import "../styles/mixins/mixins.module.scss";
 
+$width-li-1: 13.5ch;
+$width-li-2: 14.7ch;
+
 .header {
 	display: flex;
 	flex-direction: column-reverse;
@@ -15,8 +18,35 @@
 		h2 {
 			@include title();
 
-			span {
-				color: $primary;
+			.container_typing {
+				display: flex;
+				justify-content: center;
+				height: 2ch;
+				overflow: hidden;
+
+				ul {
+					list-style: none;
+					text-align: left;
+					animation: slider steps(2) 8s infinite;
+					color: $primary;
+
+					li span {
+						display: inline-block;
+						width: 0;
+						padding-left: 0.5ch;
+						border-right: 3px solid $primary;
+						overflow: hidden;
+						white-space: nowrap;
+					}
+
+					li:nth-child(1) span {
+						animation: typing_1 2s infinite alternate;
+					}
+
+					li:nth-child(2) span {
+						animation: typing_2 2s infinite alternate;
+					}
+				}
 			}
 		}
 		p {
@@ -28,9 +58,9 @@
 		}
 
 		.buttons {
-			margin-top: 15px;
+			margin-top: 20px;
 			display: flex;
-			gap: 15px;
+			gap: 20px;
 			align-items: center;
 			justify-content: flex-end;
 		}
@@ -40,6 +70,26 @@
 		width: 270px;
 		height: 270px;
 		border-radius: 100%;
-		box-shadow: 0px 0px 150px 0px rgba(123, 31, 162, 0.2);
+		box-shadow: 0px 0px 200px 10px $shadow-person;
+	}
+}
+
+@keyframes typing_1 {
+	70%,
+	100% {
+		width: $width-li-1;
+	}
+}
+
+@keyframes typing_2 {
+	70%,
+	100% {
+		width: $width-li-2;
+	}
+}
+
+@keyframes slider {
+	100% {
+		margin-top: -3.27em;
 	}
 }
