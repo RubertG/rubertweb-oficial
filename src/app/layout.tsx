@@ -4,6 +4,7 @@ import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
 import Nav from '@/components/layout/Nav/Nav'
 import { type LinkNav } from '@/types/types'
+import Footer from '@/components/layout/Footer/Footer'
 
 const authors: Author = {
   name: 'Rubert Gonzalez',
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body>
         <Nav items={itemsNav} />
         {children}
+        <Footer />
       </body>
     </html >
   )

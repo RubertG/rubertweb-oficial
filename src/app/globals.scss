@@ -15,6 +15,35 @@ body {
 	font-family: prompt_regular;
 }
 
+body::-webkit-scrollbar {
+	-webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+	width: 10px;
+	background-color: $bg-primary;
+}
+
+body::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button:decrement {
+	display: none;
+}
+
+body::-webkit-scrollbar:horizontal {
+	background-color: $secondary;
+	height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: $secondary;
+	border-radius: 20px;
+	border: 2px solid $bg-primary;
+}
+
+body::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
 @font-face {
 	font-family: prompt_light;
 	src: url("../fonts/Prompt-Light.ttf");

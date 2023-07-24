@@ -1,0 +1,33 @@
+@import "../../../styles/variables/variables.module.scss";
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 35px;
+	row-gap: 7px;
+	background: $bg-primary;
+	padding: 20px 50px;
+
+	a {
+		color: $text-dark;
+		text-decoration: none;
+		letter-spacing: 0.7px;
+		font-size: 0.9rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.footer {
+		a {
+			font-size: 1rem;
+			transition: color 0.2s;
+
+			&:hover {
+				text-decoration: underline;
+				color: $text-white;
+			}
+		}
+	}
+}
