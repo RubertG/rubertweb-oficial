@@ -12,6 +12,7 @@ $width-li-2: 14.7ch;
 	min-height: 100vh;
 	margin: 0 10px;
 	gap: 30px;
+	margin-top: -20px;
 
 	.content {
 		max-width: 650px;
@@ -86,11 +87,15 @@ $width-li-2: 14.7ch;
 }
 
 @media (min-width: 764px) {
-	.header svg {
-		transition: transform 0.2s;
+	.header {
+		margin-top: 0px;
 
-		&:hover {
-			transform: rotate(5deg) translate(-5px, -5px);
+		svg {
+			transition: transform 0.2s;
+
+			&:hover {
+				transform: rotate(5deg) translate(-5px, -5px);
+			}
 		}
 	}
 }

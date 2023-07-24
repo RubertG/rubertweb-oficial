@@ -9,7 +9,7 @@ const parseTecnologies = (): string => {
     if (index === 0) {
       parseTecnologies += tecnology.name
     } else if (index === TECNOLOGIES.length - 1) {
-      parseTecnologies += ` y ${tecnology.name}`
+      parseTecnologies += ` y ${tecnology.name}.`
     } else { parseTecnologies += `, ${tecnology.name}` }
   })
   return parseTecnologies
@@ -40,9 +40,9 @@ function AboutMe(): JSX.Element {
           <h3>Skills</h3>
           <div className={Styles.tecnologies}>
             {
-              TECNOLOGIES.map(({ icon }) => {
+              TECNOLOGIES.map(({ name, icon }) => {
                 if (icon !== null) {
-                  return icon
+                  return <div key={name}>{icon}</div>
                 }
                 return null
               })
