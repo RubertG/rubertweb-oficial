@@ -67,6 +67,13 @@ $width-li-2: 14.7ch;
 			justify-content: flex-end;
 		}
 	}
+
+	svg {
+		width: 270px;
+		height: 270px;
+		border-radius: 100%;
+		box-shadow: 0px 0px 200px 10px $shadow-person;
+	}
 }
 
 @keyframes typing_1 {
@@ -85,10 +92,6 @@ $width-li-2: 14.7ch;
 
 @media (min-width: 764px) {
 	.header svg {
-		width: 270px;
-		height: 270px;
-		border-radius: 100%;
-		box-shadow: 0px 0px 200px 10px $shadow-person;
 		transition: transform 0.2s;
 
 		&:hover {
