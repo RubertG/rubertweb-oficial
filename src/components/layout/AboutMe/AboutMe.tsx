@@ -33,9 +33,6 @@ function AboutMe(): JSX.Element {
           <p>
             Si estás buscando un desarrollador front-end entusiasta y orientado a resultados, estaré encantado de formar parte de tu equipo.</p>
         </div>
-        <div>
-          <span></span>
-        </div>
         <div className={Styles.skills}>
           <h3>Skills</h3>
           <div className={Styles.tecnologies}>

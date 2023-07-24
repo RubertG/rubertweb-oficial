@@ -5,6 +5,11 @@ export interface TecnologyType {
   icon: JSX.Element | null
 }
 
+export interface SocialLink {
+  name: string
+  href: string
+}
+
 export interface LinkNav {
   literal: string
   href: string
