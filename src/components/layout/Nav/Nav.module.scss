@@ -115,9 +115,13 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		// background-color: rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(10px);
 		z-index: 100;
+		transition: background 0.3s;
+
+		&.scroll {
+			background-color: #08040a73;
+		}
 
 		.brand {
 			cursor: pointer;

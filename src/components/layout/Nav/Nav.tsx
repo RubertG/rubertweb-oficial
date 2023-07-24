@@ -14,6 +14,7 @@ interface Props {
 function Nav({ items }: Props): JSX.Element {
   const pathname = usePathname()
   const [toggler, setToggler] = useState(false)
+  const navRef = useRef<HTMLDivElement>(null)
   const liRefs = useRef<Array<HTMLLIElement | null>>([])
   const hoverDiv = useRef<HTMLDivElement>(null)
 
@@ -44,6 +45,22 @@ function Nav({ items }: Props): JSX.Element {
     }
   }, [])
 
+  useEffect(() => {
+    if (window !== undefined) {
+      const navAnimationScroll = (): void => {
+        if (window.scrollY > 0) {
+          navRef.current?.classList.add(Styles.scroll)
+        } else {
+          navRef.current?.classList.remove(Styles.scroll)
+        }
+      }
+      window.addEventListener('scroll', navAnimationScroll)
+      return () => {
+        window.removeEventListener('scroll', navAnimationScroll)
+      }
+    }
+  }, [])
+
   const hoverAnimation = (item: HTMLLIElement): void => {
     const { top, left, width, height } = item.getBoundingClientRect()
 
@@ -67,7 +84,9 @@ function Nav({ items }: Props): JSX.Element {
       >
         <span></span><span></span><span></span>
       </button>
-      <nav className={`${Styles.nav} ${toggler ? Styles.active : ''}`}>
+      <nav
+        ref={navRef}
+        className={`${Styles.nav} ${toggler ? Styles.active : ''}`}>
         <Link
           href="/"
           onClick={() => { setToggler(false) }}
