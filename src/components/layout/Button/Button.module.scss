@@ -12,3 +12,15 @@
 	font-size: 1rem;
 	box-shadow: 0px 0px 25px 0px $shadow-button;
 }
+
+@media (min-width: 764px) {
+	.button {
+		font-family: prompt_medium;
+		font-size: 1.1rem;
+		transition: transform 0.2s;
+
+		&:hover {
+			transform: translateY(-2px) rotate(-1deg);
+		}
+	}
+}

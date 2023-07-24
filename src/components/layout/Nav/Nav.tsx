@@ -21,17 +21,26 @@ function Nav({ items }: Props): JSX.Element {
     if (window !== undefined) {
       const lis: Array<HTMLLIElement | null> = liRefs.current
       hoverAnimation(lis[0] as HTMLLIElement)
+
+      const mouseEnterHandler = (item: HTMLLIElement): void => {
+        hoverAnimation(item)
+        if (hoverDiv.current !== null) hoverDiv.current.style.opacity = '1'
+      }
+
+      const mouseLeaveHandler = (): void => {
+        if (hoverDiv.current !== null) hoverDiv.current.style.opacity = '0'
+      }
+
       lis.forEach((item) => {
-        item?.addEventListener('mouseenter', () => {
-          hoverAnimation(item)
-          if (hoverDiv.current !== null) hoverDiv.current.style.opacity = '1'
-        })
-        item?.addEventListener('mouseleave', () => {
-          if (hoverDiv.current !== null) {
-            hoverDiv.current.style.opacity = '0'
-          }
-        })
+        item?.addEventListener('mouseenter', () => { mouseEnterHandler(item) })
+        item?.addEventListener('mouseleave', mouseLeaveHandler)
       })
+      return () => {
+        lis.forEach((item) => {
+          item?.removeEventListener('mouseenter', () => { mouseEnterHandler(item) })
+          item?.removeEventListener('mouseleave', mouseLeaveHandler)
+        })
+      }
     }
   }, [])
 

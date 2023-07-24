@@ -1,0 +1,168 @@
+@import "../../../styles/variables/variables.module.scss";
+@import "../../../styles/mixins/mixins.module.scss";
+
+$width-li-1: 13.5ch;
+$width-li-2: 14.7ch;
+
+.header {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	min-height: 100dvh;
+	margin: 0 10px;
+	gap: 30px;
+
+	.content {
+		max-width: 650px;
+
+		h2 {
+			@include title();
+
+			.container_typing {
+				display: flex;
+				justify-content: center;
+				height: 2ch;
+				overflow: hidden;
+
+				ul {
+					list-style: none;
+					text-align: left;
+					animation: slider steps(2) 8s infinite;
+					color: $primary;
+
+					li span {
+						display: inline-block;
+						width: 0;
+						padding-left: 0.5ch;
+						border-right: 3px solid $primary;
+						overflow: hidden;
+						white-space: nowrap;
+					}
+
+					li:nth-child(1) span {
+						animation: typing_1 2s infinite alternate ease-in-out;
+					}
+
+					li:nth-child(2) span {
+						animation: typing_2 2s infinite alternate ease-in-out;
+					}
+				}
+			}
+		}
+		p {
+			font-family: prompt_regular;
+			letter-spacing: 0.7px;
+			margin-top: 15px;
+			font-size: 1rem;
+			color: $text-dark;
+		}
+
+		.buttons {
+			margin-top: 20px;
+			display: flex;
+			gap: 20px;
+			align-items: center;
+			justify-content: flex-end;
+		}
+	}
+}
+
+@keyframes typing_1 {
+	70%,
+	100% {
+		width: $width-li-1;
+	}
+}
+
+@keyframes typing_2 {
+	70%,
+	100% {
+		width: $width-li-2;
+	}
+}
+
+@media (min-width: 764px) {
+	.header svg {
+		width: 270px;
+		height: 270px;
+		border-radius: 100%;
+		box-shadow: 0px 0px 200px 10px $shadow-person;
+		transition: transform 0.2s;
+
+		&:hover {
+			transform: rotate(5deg) translate(-5px, -5px);
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	$width-li-1: 12.8ch;
+	$width-li-2: 14ch;
+
+	.header {
+		flex-direction: row;
+		gap: 50px;
+
+		.content {
+			h2 {
+				font-size: 3.5rem;
+				font-family: prompt_bold;
+				text-align: left;
+
+				.container_typing {
+					justify-content: flex-start;
+				}
+			}
+
+			p {
+				font-size: 1.1rem;
+			}
+
+			.buttons {
+				margin-top: 30px;
+				gap: 30px;
+			}
+		}
+	}
+
+	@keyframes typing_1 {
+		70%,
+		100% {
+			width: $width-li-1;
+		}
+	}
+
+	@keyframes typing_2 {
+		70%,
+		100% {
+			width: $width-li-2;
+		}
+	}
+}
+
+@media (min-width: 1224px) {
+	.header {
+		flex-direction: row;
+		gap: 80px;
+
+		.content {
+			max-width: 690px;
+			h2 {
+				font-size: 3.7rem;
+			}
+		}
+
+		svg {
+			width: 330px;
+			height: 330px;
+		}
+	}
+}
+
+@keyframes slider {
+	100% {
+		margin-top: -3.27em;
+	}
+}

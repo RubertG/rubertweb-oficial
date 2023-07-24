@@ -98,7 +98,7 @@
 	}
 }
 
-@media (min-width: 764px) {
+@media (min-width: 1024px) {
 	.toggler {
 		display: none;
 	}
@@ -110,18 +110,19 @@
 		height: auto;
 		max-width: none;
 		margin: auto;
-		padding: 10px 30px;
+		padding: 10px 80px;
 		transform: translateX(0%);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: $bg-primary;
+		// background-color: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(10px);
 		z-index: 100;
 
 		.brand {
 			cursor: pointer;
 			font-family: prompt_medium;
-			font-size: 1.3rem;
+			font-size: 1.2rem;
 			letter-spacing: 1.6px;
 		}
 
@@ -135,7 +136,7 @@
 				--left: 10px;
 				--height: 10px;
 				position: fixed;
-				background-color: #ffffff2c;
+				background-color: #ffffff17;
 				top: var(--top);
 				left: var(--left);
 				width: var(--width);
@@ -162,11 +163,5 @@
 				}
 			}
 		}
-	}
-}
-
-@media (min-width: 1024px) {
-	.nav {
-		padding: 10px 80px;
 	}
 }

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
-import MouseAnimation from '@/components/MouseAnimation/MouseAnimation'
 import './globals.scss'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
@@ -31,7 +30,6 @@ export default function RootLayout({
   return (
     <html lang="es" >
       <body>
-        <MouseAnimation />
         <Nav items={itemsNav} />
         {children}
       </body>
