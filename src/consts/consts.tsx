@@ -9,5 +9,7 @@ export const TECNOLOGIES: TecnologyType[] = [
   { name: 'TypeScript', icon: <TypeScript /> },
   { name: 'Sass', icon: <Sass /> },
   { name: 'Firebase', icon: <Firebase /> },
+  { name: 'Next.js', icon: null },
+  { name: 'Tailwind CSS', icon: null },
   { name: 'Figma', icon: <Figma /> }
 ]

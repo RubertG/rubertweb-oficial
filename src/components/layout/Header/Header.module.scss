@@ -52,11 +52,7 @@ $width-li-2: 14.7ch;
 			}
 		}
 		p {
-			font-family: prompt_regular;
-			letter-spacing: 0.7px;
-			margin-top: 15px;
-			font-size: 1rem;
-			color: $text-dark;
+			@include paragraf();
 		}
 
 		.buttons {

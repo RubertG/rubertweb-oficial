@@ -1,0 +1,69 @@
+@import "../../../styles/variables/variables.module.scss";
+@import "../../../styles/mixins/mixins.module.scss";
+
+.container {
+	.container_division {
+		filter: drop-shadow(0 30px 15px #8f23bd4d);
+
+		svg {
+			width: 100%;
+		}
+	}
+
+	h2 {
+		@include title();
+		margin-top: 20px;
+	}
+
+	.grid {
+		max-width: 600px;
+		padding: 0 10px;
+		margin: auto;
+
+		p {
+			@include paragraf();
+
+			&:nth-child(1) {
+				margin-top: 20px;
+			}
+
+			strong {
+				color: $secondary;
+			}
+		}
+
+		.skills {
+			margin-top: 30px;
+
+			h3 {
+				@include title();
+				font-size: 1.7rem;
+			}
+
+			.tecnologies {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 50px;
+				margin: auto;
+				margin-top: 30px;
+				max-width: 330px;
+
+				svg {
+					width: 75px;
+					height: 75px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 764px) {
+	.container {
+		.container_division {
+			filter: drop-shadow(0 60px 30px #8f23bd2f)
+				drop-shadow(0 -10px 20px $bg-primary);
+		}
+	}
+}

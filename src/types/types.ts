@@ -2,7 +2,7 @@ import { type TECNOLOGIES } from '@/consts/consts'
 
 export interface TecnologyType {
   name: string
-  icon: JSX.Element
+  icon: JSX.Element | null
 }
 
 export interface LinkNav {
