@@ -18,9 +18,7 @@ const parseTecnologies = (): string => {
 function AboutMe(): JSX.Element {
   return (
     <section className={Styles.container}>
-      <div className={Styles.container_division}>
-        <DivisionOne />
-      </div>
+      <DivisionOne />
       <h2>Sobre mí</h2>
       <main className={Styles.grid}>
         <div>
@@ -38,10 +36,7 @@ function AboutMe(): JSX.Element {
           <div className={Styles.tecnologies}>
             {
               TECNOLOGIES.map(({ name, icon }) => {
-                if (icon !== null) {
-                  return <div key={name}>{icon}</div>
-                }
-                return null
+                return <div key={name} title={name}>{icon}</div>
               })
             }
           </div>

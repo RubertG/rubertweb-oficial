@@ -1,17 +1,27 @@
-import { CSS, Figma, Firebase, HTML, JS, NextJS, React, Sass, TypeScript } from '@/components/Icons/Icons'
+import { CSS as CSSIcon, Figma, Firebase, HTML as HTMLIcon, JS as JSIcon, NextJS, React, Sass, Tailwind, TypeScript } from '@/components/Icons/Icons'
 import { type SocialLink, type TecnologyType } from '@/types/types'
 
+export const HTML: TecnologyType = { name: 'HTML', icon: <HTMLIcon /> }
+export const CSS: TecnologyType = { name: 'CSS', icon: <CSSIcon /> }
+export const JS: TecnologyType = { name: 'JavaScript', icon: <JSIcon /> }
+export const REACT: TecnologyType = { name: 'React', icon: <React /> }
+export const TYPESCRIPT: TecnologyType = { name: 'TypeScript', icon: <TypeScript /> }
+export const SASS: TecnologyType = { name: 'Sass', icon: <Sass /> }
+export const FIREBASE: TecnologyType = { name: 'Firebase', icon: <Firebase /> }
+export const NEXTJS: TecnologyType = { name: 'NextJS', icon: <NextJS /> }
+export const TAILWIND: TecnologyType = { name: 'Tailwind CSS', icon: <Tailwind /> }
+export const FIGMA: TecnologyType = { name: 'Figma', icon: <Figma /> }
+
 export const TECNOLOGIES: TecnologyType[] = [
-  { name: 'HTML', icon: <HTML /> },
-  { name: 'CSS', icon: <CSS /> },
-  { name: 'JavaScript', icon: <JS /> },
-  { name: 'React', icon: <React /> },
-  { name: 'TypeScript', icon: <TypeScript /> },
-  { name: 'Sass', icon: <Sass /> },
-  { name: 'Firebase', icon: <Firebase /> },
-  { name: 'Next.js', icon: <NextJS /> },
-  { name: 'Tailwind CSS', icon: null },
-  { name: 'Figma', icon: <Figma /> }
+  HTML,
+  CSS,
+  JS,
+  REACT,
+  TYPESCRIPT,
+  SASS,
+  FIREBASE,
+  NEXTJS,
+  FIGMA
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [

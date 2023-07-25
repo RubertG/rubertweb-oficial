@@ -56,11 +56,6 @@
 
 @media (min-width: 764px) {
 	.container {
-		.container_division {
-			filter: drop-shadow(0 60px 30px #8f23bd2f)
-				drop-shadow(0 -10px 20px $bg-primary);
-		}
-
 		h2 {
 			font-size: 3.5rem;
 			font-family: prompt_bold;

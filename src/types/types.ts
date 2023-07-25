@@ -15,4 +15,13 @@ export interface LinkNav {
   href: string
 }
 
+export interface ProjectType {
+  title: string
+  description: string
+  img: string
+  github?: string
+  href: string
+  tecnologies: TecnologyType[]
+}
+
 export type TecnologiesType = keyof typeof TECNOLOGIES
