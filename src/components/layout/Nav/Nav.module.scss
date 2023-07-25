@@ -120,12 +120,12 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		backdrop-filter: blur(10px);
+		backdrop-filter: blur(7px);
 		z-index: 1000;
 		transition: background 0.3s;
 
 		&.scroll {
-			background-color: #08040ac7;
+			background-color: $bg-nav-two;
 		}
 
 		.brand {
@@ -146,7 +146,7 @@
 				--left: 10px;
 				--height: 10px;
 				position: fixed;
-				background-color: #ffffff34;
+				background-color: $hover-div;
 				top: var(--top);
 				left: var(--left);
 				width: var(--width);

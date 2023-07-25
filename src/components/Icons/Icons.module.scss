@@ -1,0 +1,23 @@
+@import "../../styles/variables/variables.module.scss";
+
+.container_division {
+	filter: drop-shadow(0 30px 10px #8f23bd46);
+	overflow: hidden;
+
+	svg {
+		width: 100%;
+		min-width: 650px;
+	}
+}
+
+@media (min-width: 764px) {
+	.container_division {
+		filter: drop-shadow(0 60px 30px #8f23bd0e);
+	}
+}
+
+@media (min-width: 1440px) {
+	.container_division {
+		display: none;
+	}
+}
