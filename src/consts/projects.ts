@@ -49,4 +49,4 @@ export const projects: ProjectType[] = [
     href: 'https://organiza-tareas-app.netlify.app/',
     tecnologies: [REACT, CSS, FIREBASE, FIGMA]
   }
-]
+] as const
