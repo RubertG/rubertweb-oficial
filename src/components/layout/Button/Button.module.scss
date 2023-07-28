@@ -9,14 +9,14 @@
 	text-decoration: none;
 	font-family: prompt_regular;
 	letter-spacing: 0.8px;
-	font-size: 1rem;
+	font-size: 1.1rem;
 	box-shadow: 0px 0px 25px 0px $shadow-button;
 }
 
 @media (min-width: 764px) {
 	.button {
 		font-family: prompt_medium;
-		font-size: 1.1rem;
+		font-size: 1.2rem;
 		transition: transform 0.2s;
 
 		&:hover {

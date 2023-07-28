@@ -17,8 +17,9 @@
 
 		p {
 			@include paragraf();
+			margin-top: 15px;
 
-			&:nth-child(1) {
+			&:first-child {
 				margin: 0;
 			}
 

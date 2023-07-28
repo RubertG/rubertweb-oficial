@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/space-before-function-paren */
 import { Person } from '@/components/Icons/Icons'
 import Button from '../Button/Button'
 import Styles from './Header.module.scss'
 
-/* eslint-disable @typescript-eslint/space-before-function-paren */
 function Header(): JSX.Element {
   return (
-    <header className={Styles.header}>
+    <header
+      className={Styles.header}
+    >
       <div className={Styles.content}>
         <h2>
           ¡Hola mundo!<br />
@@ -19,7 +21,7 @@ function Header(): JSX.Element {
         </h2>
         <p>Desarrollador web front-end. Hábil en el desarrollo de aplicaciones creativas con un diseño vanguardista. Si necesitas mis servicios estoy disponible para que me contactes.</p>
         <div className={Styles.buttons}>
-          <Button href='#'>Contáctame</Button>
+          <Button href='/contact'>Contáctame</Button>
           <Button href='#'>Descargar CV</Button>
         </div>
       </div>
