@@ -15,6 +15,10 @@ body {
 	font-family: prompt_regular;
 }
 
+*::selection {
+	background: $secondary;
+}
+
 body::-webkit-scrollbar {
 	-webkit-appearance: none;
 }

@@ -3,9 +3,37 @@
 
 .container {
 	margin-bottom: 80px;
+	padding: 0 10px;
 
 	h2 {
 		@include title();
 		margin-top: 10px;
+	}
+
+	.container_projects {
+		max-width: 1200px;
+		margin: auto;
+		margin-top: 40px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 30px 20px;
+		list-style: none;
+	}
+}
+
+@media (min-width: 764px) {
+	.container {
+		h2 {
+			@include title_lg();
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		.container_projects {
+			margin-top: 60px;
+		}
 	}
 }

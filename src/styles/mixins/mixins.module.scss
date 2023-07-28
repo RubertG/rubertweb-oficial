@@ -3,10 +3,16 @@
 @mixin title() {
 	text-align: center;
 	font-family: prompt_regular;
-	font-size: 2rem;
+	font-size: 2.5rem;
 	letter-spacing: 1.3px;
 	line-height: 130%;
 	color: $text-white;
+}
+
+@mixin title_lg() {
+	font-size: 3.5rem;
+	font-family: prompt_bold;
+	margin-top: 50px;
 }
 
 @mixin paragraf() {

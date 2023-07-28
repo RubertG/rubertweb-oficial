@@ -23,7 +23,7 @@ function AboutMe(): JSX.Element {
       <main className={Styles.grid}>
         <div>
           <p>
-            Soy un desarrollador web front-end apasionado por la programación en busca de nuevos desafíos. Me encanta aprender y crecer en el campo de la programación, manteniéndome actualizado sobre las últimas tendencias y mejores prácticas. Disfruto colaborar con otros profesionales y enfrentar desafíos creativos.
+            Soy un desarrollador web front-end apasionado por la programación en busca de nuevos desafíos. Me encanta aprender y crecer en el campo de la programación, manteniéndome actualizado sobre las últimas tendencias y mejores prácticas.
           </p>
           <p>
             Mis habilidades incluyen <strong>{parseTecnologies()}</strong>
