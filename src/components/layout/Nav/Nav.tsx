@@ -16,7 +16,7 @@ function Nav({ items }: Props): JSX.Element {
   const [toggler, setToggler] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
   const liRefs = useRef<Array<HTMLLIElement | null>>([])
-  const hoverDiv = useRef<HTMLDivElement>(null)
+  const hoverDiv = useRef<HTMLLIElement>(null)
 
   useEffect(() => {
     if (window !== undefined) {
@@ -81,6 +81,7 @@ function Nav({ items }: Props): JSX.Element {
       <button
         className={`${Styles.toggler} ${toggler ? Styles.active : ''}`}
         onClick={handleClick}
+        title='Menú'
       >
         <span></span><span></span><span></span>
       </button>
@@ -94,11 +95,11 @@ function Nav({ items }: Props): JSX.Element {
           RubertWeb
         </Link>
         <ul>
-          <div
+          <li
             className={Styles.hover_div}
             id='hover_div'
             ref={hoverDiv}>
-          </div>
+          </li>
           {
             items.map(({ literal, href }) => {
               let isActive = false
