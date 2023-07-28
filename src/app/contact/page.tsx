@@ -1,7 +1,31 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
+import { SOCIAL_LINKS } from '@/consts/consts'
+import { parseTecnologies } from '@/logic/parseTecnologies'
+
 function ContactPage(): JSX.Element {
   return (
-    <div>ContactPage</div>
+    <main>
+      <h2>Contáctame</h2>
+      <p>
+        ¡Mucho gusto! Soy Rubert Gonzalez, un desarrollador front-end con experiencia en <strong>{parseTecnologies()}</strong>. Si necesitas ayuda con tus proyectos web, no dudes en contactarme.
+      </p>
+      <section>
+        {
+          SOCIAL_LINKS.map(({ href, icon, name }) => {
+            return (
+              <a
+                key={name}
+                href={href}
+                title={name}
+                target='_blank'
+                rel='noopener noreferrer'>
+                {icon}
+              </a>
+            )
+          })
+        }
+      </section>
+    </main>
   )
 }
 

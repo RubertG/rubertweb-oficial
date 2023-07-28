@@ -2,18 +2,7 @@
 import { TECNOLOGIES } from '@/consts/consts'
 import Styles from './AboutMe.module.scss'
 import { DivisionOne } from '@/components/Icons/Icons'
-
-const parseTecnologies = (): string => {
-  let parseTecnologies = ''
-  TECNOLOGIES.forEach((tecnology, index) => {
-    if (index === 0) {
-      parseTecnologies += tecnology.name
-    } else if (index === TECNOLOGIES.length - 1) {
-      parseTecnologies += ` y ${tecnology.name}.`
-    } else { parseTecnologies += `, ${tecnology.name}` }
-  })
-  return parseTecnologies
-}
+import { parseTecnologies } from '@/logic/parseTecnologies'
 
 function AboutMe(): JSX.Element {
   return (

@@ -8,6 +8,7 @@ export interface TecnologyType {
 export interface SocialLink {
   name: string
   href: string
+  icon: JSX.Element
 }
 
 export interface LinkNav {
