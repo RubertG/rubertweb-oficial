@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
 import Link from 'next/link'
-// import Styles from './Button.module.scss'
+import Styles from './Button.module.scss'
 
 interface Props {
   href: string
@@ -9,7 +9,7 @@ interface Props {
 
 function Button({ href, children }: Props): JSX.Element {
   return (
-    <Link href={href} >{children}</Link>
+    <Link href={href} className={Styles.button}>{children}</Link>
   )
 }
 
