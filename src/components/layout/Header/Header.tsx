@@ -22,7 +22,7 @@ function Header(): JSX.Element {
         <p>Desarrollador web front-end. Hábil en el desarrollo de aplicaciones creativas con un diseño vanguardista. Si necesitas mis servicios estoy disponible para que me contactes.</p>
         <div className={Styles.buttons}>
           <Button href='/contact'>Contáctame</Button>
-          <Button href='#'>Descargar CV</Button>
+          <Button href='assets/CV.pdf'>Descargar CV</Button>
         </div>
       </div>
       <Person />

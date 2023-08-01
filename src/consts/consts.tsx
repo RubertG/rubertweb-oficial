@@ -12,6 +12,19 @@ export const NEXTJS: TecnologyType = { name: 'NextJS', icon: <NextJS /> }
 export const TAILWIND: TecnologyType = { name: 'Tailwind CSS', icon: <Tailwind /> }
 export const FIGMA: TecnologyType = { name: 'Figma', icon: <Figma /> }
 
+export const TOTAL_TECNOLOGIES: TecnologyType[] = [
+  HTML,
+  CSS,
+  JS,
+  REACT,
+  TYPESCRIPT,
+  SASS,
+  FIREBASE,
+  NEXTJS,
+  FIGMA,
+  TAILWIND
+]
+
 export const TECNOLOGIES: TecnologyType[] = [
   HTML,
   CSS,

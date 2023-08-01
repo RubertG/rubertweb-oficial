@@ -1,0 +1,30 @@
+@import "../../styles/mixins/mixins.module.scss";
+@import "../../styles/variables/variables.module.scss";
+
+.container {
+	width: 100%;
+	max-width: 950px;
+	min-height: 90vh;
+	margin: auto;
+	animation: entry 0.2s ease-in-out both;
+
+	.title {
+		@include title();
+		padding-top: 50px;
+	}
+
+	.posts {
+		margin-top: 30px;
+	}
+}
+
+@keyframes entry {
+	from {
+		opacity: 0;
+		transform: translateY(15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

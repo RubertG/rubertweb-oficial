@@ -1,5 +1,3 @@
-import { type TECNOLOGIES } from '@/consts/consts'
-
 export interface TecnologyType {
   name: string
   icon: JSX.Element | null
@@ -24,5 +22,3 @@ export interface ProjectType {
   href: string
   tecnologies: TecnologyType[]
 }
-
-export type TecnologiesType = keyof typeof TECNOLOGIES
