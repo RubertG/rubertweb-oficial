@@ -1,0 +1,53 @@
+@import "../../../styles/variables/variables.module.scss";
+
+.container {
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		color: $text-white;
+		text-decoration: none;
+		letter-spacing: 0.7px;
+		font-size: 1.1rem;
+		padding: 15px 25px;
+		border: 1px solid #9e27ff3b;
+		border-radius: 10px;
+		background-color: #9e27ff18;
+
+		svg {
+			path {
+				stroke: $text-white;
+			}
+		}
+
+		&.previous_button {
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+
+		&.button_disable {
+			opacity: 0;
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		.button {
+			font-size: 1.15rem;
+			font-family: prompt_light;
+			transition: box-shadow 0.2s;
+
+			&:hover {
+				box-shadow: 0 0 15px -5px $shadow-button;
+			}
+		}
+	}
+}

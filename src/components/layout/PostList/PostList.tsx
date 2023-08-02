@@ -39,10 +39,11 @@ function PostsList(): JSX.Element {
   return (
     <>
       {
-        posts.map((post: PostType) => (
+        posts.map((post, i) => (
           <Post
             key={post._raw.flattenedPath}
             post={post}
+            delay={i * 0.1}
           />
         ))
       }

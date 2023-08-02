@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/indent */
 /* eslint-disable @typescript-eslint/space-before-function-paren */
 import Link from 'next/link'
+import Styles from './Pagination.module.scss'
+import { Arrow } from '@/components/Icons/Icons'
 
 interface Props {
   totalPages: number
@@ -9,47 +11,49 @@ interface Props {
 
 function Pagination({ totalPages, currentPage = 1 }: Props): JSX.Element {
   return (
-    <div className="flex gap-6">
+    <div className={Styles.container}>
       {
-        currentPage === 1
+        currentPage !== 1
           ? (
-            <button
-              disabled
-              className="cursor-not-allowed"
-            >
-              Prev
-            </button>
-          )
-          : (
             <Link
               href={{
                 pathname: '/blog',
                 query: { page: currentPage - 1 }
               }}
+              className={`${Styles.button} ${Styles.previous_button}`}
             >
-              Prev
+              <Arrow /> Anterior
             </Link>
+          )
+          : (
+            <button
+              disabled
+              className={`${Styles.button} ${Styles.button_disable} ${Styles.previous_button}`}
+            >
+              <Arrow /> Anterior
+            </button>
           )
       }
       {
-        currentPage === totalPages
+        currentPage !== totalPages
           ? (
-            <button
-              disabled
-              className="cursor-not-allowed"
-            >
-              Next
-            </button>
-          )
-          : (
             <Link
               href={{
                 pathname: '/blog',
                 query: { page: currentPage + 1 }
               }}
+              className={Styles.button}
             >
-              Next
+              Siguiente <Arrow />
             </Link>
+          )
+          : (
+            <button
+              disabled
+              className={`${Styles.button} ${Styles.button_disable}`}
+            >
+              Siguiente <Arrow />
+            </button>
           )
       }
     </div>

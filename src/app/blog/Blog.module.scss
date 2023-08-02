@@ -3,10 +3,18 @@
 
 .container {
 	width: 100%;
-	max-width: 950px;
+	max-width: 800px;
 	min-height: 90vh;
 	margin: auto;
 	animation: entry 0.2s ease-in-out both;
+
+	.decoration {
+		position: absolute;
+		top: 10%;
+		right: 20%;
+		box-shadow: 0 0 300px 80px #7403a14d;
+		z-index: -1;
+	}
 
 	.title {
 		@include title();
@@ -14,7 +22,28 @@
 	}
 
 	.posts {
-		margin-top: 30px;
+		margin: 40px auto;
+		padding: 0 10px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		.decoration {
+			top: 20%;
+			right: 10%;
+			box-shadow: 0 0 400px 100px #7403a138, -800px 500px 400px 100px #7403a138;
+		}
+
+		.title {
+			@include title_lg();
+			margin-top: 0;
+			padding-top: 60px;
+		}
+
+		.posts {
+			margin: 30px auto;
+		}
 	}
 }
 

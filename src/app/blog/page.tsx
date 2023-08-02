@@ -2,9 +2,10 @@
 import PostList from '@/components/layout/PostList/PostList'
 import Styles from './Blog.module.scss'
 
-const page = (): JSX.Element => {
+const Blog = (): JSX.Element => {
   return (
     <main className={Styles.container}>
+      <div className={Styles.decoration}></div>
       <h2 className={Styles.title}>Artículos</h2>
       <section className={Styles.posts}>
         <PostList />
@@ -12,4 +13,4 @@ const page = (): JSX.Element => {
     </main>
   )
 }
-export default page
+export default Blog
