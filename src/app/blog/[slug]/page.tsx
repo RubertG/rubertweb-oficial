@@ -1,6 +1,8 @@
 import { allPosts } from 'contentlayer/generated'
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { notFound } from 'next/navigation'
+import Styles from './Article.module.scss'
+import { PostHeader } from '@/components/layout/Post/Post'
 
 interface StaticParams {
   slug: string
@@ -44,15 +46,8 @@ const PostLayout = ({ params }: Props): JSX.Element => {
   }
 
   return (
-    <section>
-      <h2>{post.title}</h2>
-      <time>
-        {new Date(post.date).toLocaleDateString('es-ES', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })}
-      </time>
+    <section className={Styles.container}>
+      <PostHeader post={post} />
       <article>
         <MDXContent />
       </article>

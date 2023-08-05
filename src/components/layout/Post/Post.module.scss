@@ -1,27 +1,25 @@
 @import "../../../styles/variables/variables.module.scss";
 @import "../../../styles/mixins/mixins.module.scss";
-$size-icon: 75px;
+$size-icon-one: 75px;
+$size-icon-two: 90px;
 
-.post {
+.post,
+.post_header {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 15px;
-	border: 1px solid $border-card;
-	padding: 10px;
-	border-radius: 10px;
 	margin-bottom: 15px;
-	text-decoration: none;
-	animation: entry 0.2s ease-in-out both;
+	margin-top: 60px;
 
 	.icon {
 		display: grid;
 		place-items: center;
 
 		svg {
-			width: $size-icon;
-			height: $size-icon;
+			width: $size-icon-two;
+			height: $size-icon-two;
 		}
 	}
 
@@ -47,15 +45,62 @@ $size-icon: 75px;
 	}
 }
 
+.post {
+	border: 1px solid $border-card;
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 0px;
+	text-decoration: none;
+	animation: entry 0.2s ease-in-out both;
+
+	.icon {
+		svg {
+			width: $size-icon-one;
+			height: $size-icon-one;
+		}
+	}
+}
+
 @media (min-width: 1024px) {
-	$size-icon: 85px;
+	$size-icon-one: 85px;
+	$size-icon-two: 90px;
+
+	.post,
+	.post_header {
+		gap: 20px;
+
+		&:hover {
+			.icon svg {
+				transform: scale(1.05) rotate(-2deg);
+			}
+		}
+
+		.icon {
+			svg {
+				width: $size-icon-two;
+				height: $size-icon-two;
+				transition: transform 0.2s;
+			}
+		}
+
+		.content {
+			h3 {
+				letter-spacing: 1px;
+				font-size: 1.4rem;
+				font-family: prompt_regular;
+			}
+
+			time {
+				font-size: 0.9rem;
+			}
+		}
+	}
 
 	.post {
 		border: none;
 		padding: 15px;
-		gap: 20px;
-		transition: all 0.2s;
 		outline: 1px solid #1e122200;
+		transition: all 0.2s;
 
 		&:hover {
 			background-color: $hover-div;
@@ -68,20 +113,15 @@ $size-icon: 75px;
 
 		.icon {
 			svg {
-				width: $size-icon;
-				height: $size-icon;
-				transition: transform 0.2s;
+				width: $size-icon-one;
+				height: $size-icon-one;
 			}
 		}
 
 		.content {
 			h3 {
-				letter-spacing: 1px;
 				font-size: 1.15rem;
-			}
-
-			time {
-				font-size: 0.9rem;
+				font-family: prompt_light;
 			}
 		}
 	}

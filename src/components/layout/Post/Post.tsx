@@ -18,7 +18,7 @@ interface Props {
   delay?: number
 }
 
-function Post({ post: { url, title, date, target }, delay }: Props): JSX.Element {
+export function Post({ post: { url, title, date, target }, delay }: Props): JSX.Element {
   const tecnologie = getIcon(target)
 
   if (tecnologie == null) {
@@ -55,4 +55,34 @@ function Post({ post: { url, title, date, target }, delay }: Props): JSX.Element
   )
 }
 
-export default Post
+export function PostHeader({ post: { title, date, target } }: Pick<Props, 'post'>): JSX.Element {
+  const tecnologie = getIcon(target)
+
+  if (tecnologie == null) {
+    throw new Error('Tecnologie not found')
+  }
+
+  return (
+    <article className={Styles.post_header}>
+      <div
+        title={tecnologie.name}
+        className={Styles.icon}>
+        {tecnologie.icon}
+      </div>
+      <div className={Styles.content}>
+        <h3>
+          {title}
+        </h3>
+        <footer>
+          <time>
+            {new Date(date).toLocaleDateString('es-ES', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </footer>
+      </div>
+    </article>
+  )
+}

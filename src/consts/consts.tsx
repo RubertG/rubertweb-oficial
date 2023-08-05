@@ -40,7 +40,7 @@ export const TECNOLOGIES: TecnologyType[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'Twitter', href: 'https://twitter.com/Rubert_G', icon: <Twitter /> },
   { name: 'Instagram', href: 'https://www.instagram.com/rubert_g12/', icon: <Instagram /> },
-  { name: 'Mail', href: 'mailto:rubertgonzalez5@gmail.com', icon: <Mail /> },
+  { name: 'Gmail', href: 'mailto:rubertgonzalez5@gmail.com', icon: <Mail /> },
   { name: 'GitHub', href: 'https://github.com/RubertG', icon: <GitHub /> },
   { name: 'Linkedin', href: 'https://www.linkedin.com/in/rubert-gonzalez-8782b8252/', icon: <Linkedin /> },
   { name: 'Threads', href: 'https://www.threads.net/@rubert_g12', icon: <Thread /> }

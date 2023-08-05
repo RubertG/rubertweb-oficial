@@ -4,7 +4,7 @@ import { compareDesc } from 'date-fns'
 import { allPosts, type Post as PostType } from 'contentlayer/generated'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import Post from '@/components/layout/Post/Post'
+import { Post } from '@/components/layout/Post/Post'
 import Pagination from '../Pagination/Pagination'
 
 const sortedPost: PostType[] = allPosts.sort((a: PostType, b: PostType) =>
