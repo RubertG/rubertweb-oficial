@@ -1,4 +1,4 @@
-import Button from '@/components/layout/Button/Button'
+import { Button } from '@/components/layout/Button/Button'
 import Styles from './NotFound.module.scss'
 
 /* eslint-disable @typescript-eslint/space-before-function-paren */

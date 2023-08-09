@@ -63,11 +63,11 @@ $size-icon-two: 90px;
 
 @media (min-width: 1024px) {
 	$size-icon-one: 85px;
-	$size-icon-two: 90px;
+	$size-icon-two: 85px;
 
 	.post,
 	.post_header {
-		gap: 20px;
+		gap: 30px;
 
 		&:hover {
 			.icon svg {
@@ -99,6 +99,7 @@ $size-icon-two: 90px;
 	.post {
 		border: none;
 		padding: 15px;
+		gap: 20px;
 		outline: 1px solid #1e122200;
 		transition: all 0.2s;
 

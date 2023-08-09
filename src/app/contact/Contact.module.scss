@@ -36,6 +36,7 @@
 
 		a {
 			text-decoration: none;
+			animation: animationLinks 0.2s ease-in-out both;
 
 			svg {
 				width: 60px;
@@ -84,5 +85,16 @@
 	to {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+@keyframes animationLinks {
+	from {
+		opacity: 0;
+		transform: translateX(-15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
 	}
 }

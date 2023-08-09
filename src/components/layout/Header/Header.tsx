@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
 import { Person } from '@/components/Icons/Icons'
-import Button from '../Button/Button'
+import { Button, ButtonDownload } from '../Button/Button'
 import Styles from './Header.module.scss'
 
 function Header(): JSX.Element {
@@ -22,7 +22,7 @@ function Header(): JSX.Element {
         <p>Desarrollador web front-end. Hábil en el desarrollo de aplicaciones creativas con un diseño vanguardista. Si necesitas mis servicios estoy disponible para que me contactes.</p>
         <div className={Styles.buttons}>
           <Button href='/contact'>Contáctame</Button>
-          <Button href='assets/CV.pdf'>Descargar CV</Button>
+          <ButtonDownload href='assets/CV_RUBERT_GONZALEZ.pdf'>Descargar CV</ButtonDownload>
         </div>
       </div>
       <Person />

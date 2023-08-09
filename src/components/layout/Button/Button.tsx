@@ -7,10 +7,14 @@ interface Props {
   children: React.ReactNode
 }
 
-function Button({ href, children }: Props): JSX.Element {
+export function Button({ href, children }: Props): JSX.Element {
   return (
     <Link href={href} className={Styles.button}>{children}</Link>
   )
 }
 
-export default Button
+export function ButtonDownload({ href, children }: Props): JSX.Element {
+  return (
+    <a href={href} className={Styles.button} target='_blank' rel="noreferrer">{children}</a>
+  )
+}

@@ -30,6 +30,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="es" >
+      <head>
+        <link rel="shortcut icon" href="/favicon.svg" />
+      </head>
       <body>
         <Nav items={itemsNav} />
         {children}

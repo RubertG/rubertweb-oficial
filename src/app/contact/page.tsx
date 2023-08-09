@@ -15,12 +15,15 @@ function ContactPage(): JSX.Element {
         className={Styles.container_links}
       >
         {
-          SOCIAL_LINKS.map(({ href, icon, name }) => {
+          SOCIAL_LINKS.map(({ href, icon, name }, index) => {
             return (
               <a
                 key={name}
                 href={href}
                 title={name}
+                style={{
+                  animationDelay: `${index * 0.08}s`
+                }}
                 target='_blank'
                 rel='noopener noreferrer'
               >

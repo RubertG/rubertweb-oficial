@@ -60,6 +60,10 @@
 		display: block;
 		text-align: center;
 		font-size: 1.9rem;
+
+		img {
+			display: none;
+		}
 	}
 
 	ul {
@@ -114,8 +118,7 @@
 		width: 100%;
 		height: auto;
 		max-width: none;
-		margin: auto;
-		padding: 10px 100px;
+		padding: 10px 7vw;
 		transform: translateX(0%);
 		display: flex;
 		justify-content: space-between;
@@ -132,8 +135,18 @@
 			cursor: pointer;
 			color: $primary;
 			font-family: prompt_medium;
-			font-size: 1.2rem;
-			letter-spacing: 1.6px;
+			font-size: 1.35rem;
+			letter-spacing: 1px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 7px;
+
+			img {
+				display: block;
+				width: 25px;
+				height: 25px;
+			}
 		}
 
 		ul {
@@ -147,7 +160,7 @@
 				--height: 10px;
 				position: fixed;
 				background-color: $hover-div;
-				outline: 1px solid #380649d8;
+				outline: 1px solid #4a0661;
 				top: var(--top);
 				left: var(--left);
 				width: var(--width);
