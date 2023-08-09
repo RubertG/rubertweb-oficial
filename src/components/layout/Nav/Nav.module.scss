@@ -60,10 +60,6 @@
 		display: block;
 		text-align: center;
 		font-size: 1.9rem;
-
-		img {
-			display: none;
-		}
 	}
 
 	ul {
@@ -135,18 +131,8 @@
 			cursor: pointer;
 			color: $primary;
 			font-family: prompt_medium;
-			font-size: 1.35rem;
+			font-size: 1.3rem;
 			letter-spacing: 1px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 7px;
-
-			img {
-				display: block;
-				width: 25px;
-				height: 25px;
-			}
 		}
 
 		ul {

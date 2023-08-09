@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
-import { DivisionTwo } from '@/components/Icons/Icons'
+import { DivisionTwo } from '@/components/Icons/Division'
 import Styles from './Projects.module.scss'
 import { PROJECTS } from '@/consts/projects'
 import Project from '../Project/Project'

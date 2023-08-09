@@ -92,7 +92,6 @@ function Nav({ items }: Props): JSX.Element {
           href="/"
           onClick={() => { setToggler(false) }}
           className={Styles.brand}>
-          <img src='/favicon.svg' alt='RubertWeb icon' loading='lazy' />
           RubertWeb
         </Link>
         <ul>

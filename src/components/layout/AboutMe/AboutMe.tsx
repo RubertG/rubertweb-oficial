@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
 import { TECNOLOGIES } from '@/consts/consts'
 import Styles from './AboutMe.module.scss'
-import { DivisionOne } from '@/components/Icons/Icons'
+import { DivisionOne } from '@/components/Icons/Division'
 import { parseTecnologies } from '@/logic/parseTecnologies'
 
 function AboutMe(): JSX.Element {

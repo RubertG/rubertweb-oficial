@@ -48,7 +48,8 @@ const PostLayout = ({ params }: Props): JSX.Element => {
   return (
     <section className={Styles.container}>
       <PostHeader post={post} />
-      <article>
+      <hr className={Styles.division} />
+      <article className={Styles.container_mdx}>
         <MDXContent />
       </article>
     </section>
