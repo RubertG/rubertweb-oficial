@@ -7,6 +7,7 @@
 	min-height: 90vh;
 	padding: 10px;
 	margin: auto;
+	animation: entry 0.2s both ease-in-out;
 
 	.division,
 	hr {
@@ -36,7 +37,7 @@
 		h2,
 		h3 {
 			font-family: prompt_regular;
-			letter-spacing: 0.9px;
+			letter-spacing: 1.1px;
 			font-size: 1.6rem;
 			margin-bottom: 10px;
 			margin-top: 25px;
@@ -53,7 +54,7 @@
 		div {
 			width: 100%;
 			max-width: 800px;
-			margin: 30px auto;
+			margin: 40px auto;
 			position: relative;
 		}
 
@@ -62,6 +63,10 @@
 		div[data-language="html"],
 		div[data-language="css"],
 		div[data-language="sass"] {
+			*::selection {
+				background: #383838;
+			}
+
 			&::before {
 				content: "JS";
 				font-family: prompt_medium;
@@ -138,9 +143,11 @@
 			background-color: rgba(26, 26, 26, 0.568) !important;
 			border: 1px solid $border-card;
 			line-height: 23px;
+			box-shadow: 0 0 10px 0px #2929298f;
 
 			span[data-chars-id="v"] {
 				background: #cc00ff3a;
+				color: #e992ff !important;
 				padding: 1px 5px;
 				border-radius: 5px;
 				border: 1px solid #d000ff;
@@ -148,6 +155,7 @@
 
 			span[data-chars-id="y"] {
 				background: #fbff003a;
+				color: #fcff58 !important;
 				padding: 1px 5px;
 				border-radius: 5px;
 				border: 1px solid #eeff00b6;
@@ -155,6 +163,7 @@
 
 			span[data-chars-id="b"] {
 				background: #006eff25;
+				color: #00b7ff !important;
 				padding: 1px 5px;
 				border-radius: 5px;
 				border: 1px solid #0059ffb6;
@@ -169,6 +178,40 @@
 			background: rgba(26, 26, 26, 0.568) !important;
 		}
 	}
+
+	blockquote {
+		padding: 10px 20px;
+		border: 1px solid #818181;
+		background: #6b6b6b73;
+		border-radius: 10px;
+		max-width: 800px;
+		margin: 40px auto;
+		box-shadow: 0 0 10px 0px #2929298f;
+
+		h2,
+		h3,
+		h4 {
+			color: #ffffff;
+			margin: 0 !important ;
+			padding: 0 !important;
+		}
+
+		p {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	strong {
+		color: $text-white;
+	}
+
+  a {
+    color: #d000ff;
+    text-decoration: none;
+    font-family: prompt_medium;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -176,24 +219,42 @@
 		.container_mdx {
 			p {
 				font-size: 1.1rem;
+				font-family: prompt_light;
 			}
 
 			h1 {
-				font-size: 1.8rem;
+				font-size: 1.9rem;
 			}
 
 			h2 {
-				font-size: 1.5rem;
+				font-size: 1.6rem;
 			}
 
 			h3 {
-				font-size: 1.3rem;
+				font-size: 1.4rem;
 			}
 
 			div > pre {
 				font-size: 1rem;
 				line-height: 25px;
 			}
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
 		}
+	}
+}
+
+@keyframes entry {
+	from {
+		opacity: 0;
+		transform: translateY(15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
