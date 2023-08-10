@@ -19,7 +19,7 @@ $width-li-2: 14.7ch;
 
 		h2 {
 			@include title();
-			font-size: 2rem;
+			font-size: 1.6rem;
 
 			.container_typing {
 				display: flex;
@@ -87,6 +87,16 @@ $width-li-2: 14.7ch;
 	70%,
 	100% {
 		width: $width-li-2;
+	}
+}
+
+@media (min-width: 400px) {
+	.header {
+		.content {
+			h2 {
+				font-size: 2rem;
+			}
+		}
 	}
 }
 
