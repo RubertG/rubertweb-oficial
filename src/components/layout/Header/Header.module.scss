@@ -1,8 +1,8 @@
 @import "../../../styles/variables/variables.module.scss";
 @import "../../../styles/mixins/mixins.module.scss";
 
-$width-li-1: 13.5ch;
-$width-li-2: 14.7ch;
+$width-li-1: 13.6ch;
+$width-li-2: 14.8ch;
 
 .header {
 	display: flex;
@@ -56,6 +56,7 @@ $width-li-2: 14.7ch;
 		p {
 			@include paragraf();
 			margin-top: 15px;
+			animation: entry 0.3s both ease-out 0.2s;
 		}
 
 		.buttons {
@@ -64,6 +65,7 @@ $width-li-2: 14.7ch;
 			gap: 20px;
 			align-items: center;
 			justify-content: flex-end;
+			animation: entry 0.3s both ease-out 0.4s;
 		}
 	}
 
@@ -90,11 +92,22 @@ $width-li-2: 14.7ch;
 	}
 }
 
-@media (min-width: 400px) {
+@keyframes entry {
+	from {
+		opacity: 0;
+		transform: translateY(15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (min-width: 380px) {
 	.header {
 		.content {
 			h2 {
-				font-size: 2rem;
+				font-size: 1.8rem;
 			}
 		}
 	}

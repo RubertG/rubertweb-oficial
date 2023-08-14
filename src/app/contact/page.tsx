@@ -22,7 +22,7 @@ function ContactPage(): JSX.Element {
                 href={href}
                 title={name}
                 style={{
-                  animationDelay: `${index * 0.08}s`
+                  animationDelay: `${(index * 0.1) + 0.15}s`
                 }}
                 target='_blank'
                 rel='noopener noreferrer'

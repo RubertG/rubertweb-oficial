@@ -43,7 +43,7 @@ function PostsList(): JSX.Element {
           <Post
             key={post._raw.flattenedPath}
             post={post}
-            delay={i * 0.1}
+            delay={(i * 0.1) + 0.15}
           />
         ))
       }
