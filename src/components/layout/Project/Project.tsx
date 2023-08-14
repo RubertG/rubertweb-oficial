@@ -18,7 +18,7 @@ function Project(
         />
       </div>
       <div className={Styles.content}>
-        <h4>{title}</h4>
+        <h3>{title}</h3>
         <p>{description}</p>
       </div>
       <footer className={Styles.footer}>
