@@ -20,6 +20,7 @@ $width-li-2: 14.8ch;
 		h2 {
 			@include title();
 			font-size: 1.6rem;
+			animation: entry 0.3s both 0.1s;
 
 			.container_typing {
 				display: flex;
@@ -56,7 +57,7 @@ $width-li-2: 14.8ch;
 		p {
 			@include paragraf();
 			margin-top: 15px;
-			animation: entry 0.3s both ease-out 0.2s;
+			animation: entry 0.3s both 0.3s;
 		}
 
 		.buttons {
@@ -65,11 +66,12 @@ $width-li-2: 14.8ch;
 			gap: 20px;
 			align-items: center;
 			justify-content: flex-end;
-			animation: entry 0.3s both ease-out 0.4s;
+			animation: entry 0.3s both 0.5s;
 		}
 	}
 
 	svg {
+		animation: entry 0.3s both 0.1s;
 		width: 270px;
 		height: 270px;
 		border-radius: 100%;
@@ -115,14 +117,6 @@ $width-li-2: 14.8ch;
 @media (min-width: 764px) {
 	.header {
 		margin-top: 0px;
-
-		svg {
-			transition: transform 0.2s;
-
-			&:hover {
-				transform: rotate(5deg) translate(-5px, -5px);
-			}
-		}
 	}
 }
 

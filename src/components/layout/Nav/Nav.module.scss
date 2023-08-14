@@ -123,7 +123,7 @@
 		z-index: 1000;
 		transition: background 0.3s;
 		overflow: hidden;
-     scrollbar-gutter: stable;
+		scrollbar-gutter: stable;
 
 		&.scroll {
 			background-color: $bg-nav-two;

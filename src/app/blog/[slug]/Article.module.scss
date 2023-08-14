@@ -7,7 +7,7 @@
 	min-height: 90vh;
 	padding: 10px;
 	margin: auto;
-	animation: entry 0.2s both ease-in-out;
+	animation: entry 0.3s both;
 
 	.division,
 	hr {
@@ -207,11 +207,11 @@
 		color: $text-white;
 	}
 
-  a {
-    color: #d000ff;
-    text-decoration: none;
-    font-family: prompt_medium;
-  }
+	a {
+		color: #d000ff;
+		text-decoration: none;
+		font-family: prompt_medium;
+	}
 }
 
 @media (min-width: 1024px) {
@@ -239,11 +239,11 @@
 				line-height: 25px;
 			}
 
-      a {
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+			a {
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 }

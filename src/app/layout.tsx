@@ -29,11 +29,11 @@ export default function RootLayout({
   children: React.ReactNode
 }): JSX.Element {
   return (
-    <html lang="es" >
+    <html lang="es">
       <head>
         <link rel="shortcut icon" href="/favicon.svg" />
       </head>
-      <body>
+      <body style={{ scrollbarGutter: 'stable' }}>
         <Nav items={itemsNav} />
         {children}
         <Footer />
