@@ -165,10 +165,33 @@
 					font-size: 1rem;
 					color: $text-dark;
 					border-bottom: none;
-					transition: color 0.2s;
+					position: relative;
+
+					&::before {
+						content: "";
+						position: absolute;
+						width: 85%;
+						height: 2px;
+						background: $secondary;
+						border-radius: 10px;
+						left: 50%;
+						bottom: -2px;
+            opacity: 0;
+            transition: opacity .2s;
+						transform: translateX(-50%);
+					}
 
 					svg {
 						display: none;
+					}
+				}
+
+				&.active a {
+					position: relative;
+					color: $text-dark;
+
+					&::before {
+						opacity: 1;
 					}
 				}
 			}
