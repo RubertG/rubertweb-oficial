@@ -3,6 +3,7 @@ import { getMDXComponent } from 'next-contentlayer/hooks'
 import { notFound } from 'next/navigation'
 import Styles from './Article.module.scss'
 import { PostHeader } from '@/components/layout/Post/Post'
+import ScrollBar from '@/components/layout/ScrollBar/ScrollBar'
 
 interface StaticParams {
   slug: string
@@ -46,13 +47,16 @@ const PostLayout = ({ params }: Props): JSX.Element => {
   }
 
   return (
-    <section className={Styles.container}>
-      <PostHeader post={post} />
-      <hr className={Styles.division} />
-      <article className={Styles.container_mdx}>
-        <MDXContent />
-      </article>
-    </section>
+    <>
+      <ScrollBar />
+      <section className={Styles.container}>
+        <PostHeader post={post} />
+        <hr className={Styles.division} />
+        <article className={Styles.container_mdx}>
+          <MDXContent />
+        </article>
+      </section>
+    </>
   )
 }
 export default PostLayout
