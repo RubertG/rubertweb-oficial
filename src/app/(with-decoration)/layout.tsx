@@ -1,4 +1,4 @@
-import Styles from './LayoutBlog.module.scss'
+import Styles from './Layout.module.scss'
 
 interface Props {
   children: JSX.Element
