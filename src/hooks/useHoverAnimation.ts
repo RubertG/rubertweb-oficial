@@ -27,11 +27,13 @@ export function useHoverAnimation (): Return {
       lis.forEach((item) => {
         item?.addEventListener('mouseenter', () => { mouseEnterHandler(item) })
         item?.addEventListener('mouseleave', mouseLeaveHandler)
+        item?.addEventListener('click', () => { mouseLeaveHandler() })
       })
       return () => {
         lis.forEach((item) => {
           item?.removeEventListener('mouseenter', () => { mouseEnterHandler(item) })
           item?.removeEventListener('mouseleave', mouseLeaveHandler)
+          item?.addEventListener('click', () => { mouseLeaveHandler() })
         })
       }
     }
