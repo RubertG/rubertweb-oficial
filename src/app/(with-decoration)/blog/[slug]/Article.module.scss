@@ -168,6 +168,30 @@
 				border-radius: 5px;
 				border: 1px solid #0059ffb6;
 			}
+
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
+      
+      &::-webkit-scrollbar:vertical {
+        width: 5px;
+        background-color: $bg-primary;
+      }
+      
+      &::-webkit-scrollbar-button:increment,
+      &::-webkit-scrollbar-button:decrement {
+        display: none;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: $secondary;
+        border-radius: 20px;
+        border: 6px solid #121113;
+      }
+      
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
 		}
 
 		span > code {

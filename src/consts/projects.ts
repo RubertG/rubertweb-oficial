@@ -14,7 +14,7 @@ export const PROJECTS: ProjectType[] = [
     description: 'Portafolio/Blog con página privada para administrar los articulos: agregar, borrar y editar.',
     img: '/assets/projects/kevinweb.webp',
     href: 'https://kevinweb-kappa.vercel.app/',
-    tecnologies: [NEXTJS, REACT, SASS, FIREBASE, FIGMA]
+    tecnologies: [NEXTJS, SASS, FIREBASE, FIGMA]
   },
   {
     title: 'Tres en raya - TS',
@@ -41,11 +41,12 @@ export const PROJECTS: ProjectType[] = [
     tecnologies: [HTML, CSS, JS]
   },
   {
-    title: 'Portafolio/Blog',
+    title: 'RubertWeb',
     description: 'Portafolio/Blog donde encuentras mi informacion y articulos interesantes sobre la programación web.',
     img: '/assets/projects/rubertweb.webp',
     href: 'https://rubertweb.dev',
-    tecnologies: [NEXTJS, REACT, SASS, TYPESCRIPT, FIGMA]
+    github: 'https://github.com/RubertG/rubertweb-oficial',
+    tecnologies: [NEXTJS, SASS, TYPESCRIPT, FIGMA]
   },
   {
     title: 'Portafolio 1.0',
