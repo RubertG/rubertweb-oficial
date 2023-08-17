@@ -39,20 +39,5 @@ export const PROJECTS: ProjectType[] = [
     github: 'https://github.com/RubertG/GuessingGame',
     href: 'https://rubertg.github.io/GuessingGame/',
     tecnologies: [HTML, CSS, JS]
-  },
-  {
-    title: 'RubertWeb',
-    description: 'Portafolio/Blog donde encuentras mi informacion y articulos interesantes sobre la programación web.',
-    img: '/assets/projects/rubertweb.webp',
-    href: 'https://rubertweb.dev',
-    github: 'https://github.com/RubertG/rubertweb-oficial',
-    tecnologies: [NEXTJS, SASS, TYPESCRIPT, FIGMA]
-  },
-  {
-    title: 'Portafolio 1.0',
-    description: 'Portafolio web 1.0. Habilidades, proyectos (Guardados en Firebase) y como contactarme.',
-    img: '/assets/projects/portafolio-1.0.webp',
-    href: 'https://rubertweb.netlify.app/',
-    tecnologies: [REACT, CSS, FIREBASE, FIGMA]
   }
 ]

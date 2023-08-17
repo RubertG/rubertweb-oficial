@@ -8,6 +8,12 @@
 	h2 {
 		@include title();
 		margin-top: 20px;
+    // animation: animationTitle linear;
+		// view-timeline: --title block;
+		// animation-timeline: --title;
+		// animation-range: entry 100% contain 40%;
+		// animation-fill-mode: both;
+		// animation-duration: 1ms; /* Firefox */
 	}
 
 	.grid {
