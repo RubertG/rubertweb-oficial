@@ -25,13 +25,14 @@
 		p {
 			@include paragraf();
 			margin-top: 15px;
+      text-wrap: balance;
 
 			&:first-child {
 				margin: 0;
 			}
 
 			strong {
-				color: $primary;
+				color: $success;
 			}
 		}
 

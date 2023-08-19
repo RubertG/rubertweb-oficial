@@ -132,6 +132,15 @@
 		.brand {
 			cursor: pointer;
 			color: $primary;
+			background: linear-gradient(
+				90deg,
+				$success 0%,
+				rgba(189, 0, 255, 1) 60%,
+				$primary
+			);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
 			font-family: prompt_medium;
 			font-size: 1.3rem;
 			letter-spacing: 1px;
@@ -147,8 +156,8 @@
 				--left: 10px;
 				--height: 10px;
 				position: fixed;
-				background-color: $hover-div;
-				outline: 1px solid #4a0661;
+				background-color: #4c0d613d;
+				outline: 1px solid #750899;
 				top: var(--top);
 				left: var(--left);
 				width: var(--width);
@@ -177,7 +186,7 @@
 						background: $secondary;
 						border-radius: 10px;
 						left: 50%;
-						bottom: -2px;
+						bottom: 0px;
 						opacity: 0;
 						transition: opacity 0.2s;
 						transform: translateX(-50%);
@@ -188,12 +197,22 @@
 					}
 				}
 
-				&.active a {
-					position: relative;
-					color: $text-dark;
+				&.active {
+					a {
+						position: relative;
+						color: $text-dark;
 
-					&::before {
-						opacity: 1;
+						&::before {
+							opacity: 1;
+						}
+					}
+
+					&:hover {
+						a {
+							&::before {
+								opacity: 0;
+							}
+						}
 					}
 				}
 			}
