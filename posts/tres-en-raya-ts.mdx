@@ -1,0 +1,358 @@
+---
+  title: Como hacer un tres en raya con React, Tailwind y TypeScript. Proyecto personal.
+  description: Esta es la descripcion corta de mi post
+  date: 2023-07-20
+  target: React
+---
+
+El Tres en Raya es un juego sencillo que todos conocemos. En este artículo exploraremos lo más importante sobre la lógica, la funcionalidad y la interfaz de este juego. Se utilizaron tecnologías como React, Tailwind, TypeScript y FramerMotion. Es fundamental tener en cuenta que este proyecto se inició utilizando la herramienta <a href="https://es.vitejs.dev/" target="_blank">Vite</a>.
+
+<hr />
+
+## Estructura de carpetas del proyecto
+
+Tomando la estructura que nos proporciona <a href="https://es.vitejs.dev/" target="_blank">Vite</a> al crear un proyecto, se organizó en distintas carpetas, lo que dio como resultado la siguiente estructura.
+
+<div data-language='sh'>
+	```sh
+	public/
+    └── favicon.svg
+  src/
+    ├── components/
+    ├── consts/
+    ├── hooks/
+    ├── localStorage/
+    ├── logic/
+    ├── types/
+    ├── App.scss
+    ├── App.tsx
+    ├── index.css
+    ├── main.tsx
+    └── vite-env.d.ts
+  index.html
+  ... Archivos de configuracion generados por Vite.
+	```
+</div>
+
+<hr />
+
+## Constantes
+
+Para el desarrollo de la lógica y funcionalidad hay varias constantes importantes, estas son: 
+- `OPTIONS{:ts}` <span> Las opciones de juego **X** y **Y**.</span>
+- `WINNIG_COMBO{:ts}` <span> Las combos ganadores del juego de juego. Para representar el tablero vamos a utilizar una matriz y cada número será la posicion de la opción **X** o **Y**.</span>
+
+<div data-language="ts">
+  ```ts
+    export const OPTIONS = {
+      X: 'X',
+      O: 'O'
+    } as const
+
+    export const WINNING_COMBO = [
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ] as const
+  ```
+</div>
+
+<hr />
+
+## Componentes importantes y lógica
+
+Cada icon que aparece en cada casilla del tablero de juego, será un componente `<SquareIcon />{:ts}`. Este recibe como prop el turno `turn{:ts}` en el que va el juego, es decir, una `OPTIONS{:ts}` de las constantes anteriores. El componente renderiza un svg de <a href="https://www.framer.com/motion/" target="_blank">FramerMotion</a> dependiendo del turno para que esté animado.
+
+<div data-language="ts">
+  ```ts 
+    import { m } from 'framer-motion'
+    import { type SquareOptions } from '../types/types'
+    import { OPTIONS } from '../consts/consts'
+
+    // Configuracion para animar el svg
+    const draw = {
+      hidden: { pathLength: 0, opacity: 0 },
+      visible: {
+        pathLength: 1,
+        opacity: 1,
+        transition: {
+          pathLength: {
+            type: 'spring',
+            duration: 0.5,
+            bounce: 0
+          },
+          opacity: {
+            duration: 0.01
+          }
+        }
+      }
+    }
+
+    interface Props {
+      turn: SquareOptions
+    }
+
+    const SquareIcon: React.FC<Props> = ({ turn }): JSX.Element => {
+      if (turn === OPTIONS.O) {
+        return (
+          <m.svg
+            width="100%"
+            height="100%"
+            viewBox="-15 -15 230 230"
+            initial="hidden"
+            animate="visible"
+          >
+            <m.circle
+              cx="100"
+              cy="100"
+              r="80"
+              stroke="#3b82f6"
+              strokeWidth="6"
+              fill="transparent"
+              variants={draw} />
+          </m.svg>
+        )
+      }
+      if (turn === OPTIONS.X) {
+        return (
+          <m.svg
+            width="100%"
+            height="100%"
+            viewBox="-40 -40 280 280"
+            initial="hidden"
+            animate="visible"
+          >
+            <m.line
+              x1="0"
+              y1="0"
+              x2="200"
+              y2="200"
+              stroke="#ef4444"
+              strokeWidth="6"
+              variants={draw} />
+            <m.line
+              x1="200"
+              y1="0"
+              x2="0"
+              y2="200"
+              stroke="#ef4444"
+              strokeWidth="6"
+              variants={draw} />
+          </m.svg>
+        )
+      }
+      // En caso de que no se pase una opcion retornamos un Fragment
+      return (<></>)
+    }
+
+    export default SquareIcon
+  ```
+</div>
+
+Ahora, cada casilla será un componente `<Square />{:ts}`. Este componente recibe un `Children{:ts}` que será una `SquareOptions{:ts}` (`X{:ts}`, `Y{:ts}` o `null{:ts}`), un `index{:ts}` que será la posición en el tablero de dicha casilla y una funcion `onClick{:ts}` que se ejecutará cuando ocurra el evento **click**, a esta función se le pasará el `index{:ts}` como parámetro.
+
+<div data-language="ts">
+  ```ts 
+    import { type SquareOptions } from '../types/types'
+    import SquareIcon from './SquareIcon'
+    import { AnimatePresence } from 'framer-motion'
+    
+    interface Props {
+      children: SquareOptions // X, Y o null
+      index: number
+      onClick: (index: number) => void
+    }
+    
+    const Square: React.FC<Props> = ({ children, index, onClick }): JSX.Element => {
+      return (
+        <div
+          className='sm:w-[120px] sm:h-[120px] w-[100px] h-[100px] flex items-center justify-center text-6xl font-semibold cursor-pointer md:hover:bg-slate-900 transition-colors'
+          onClick={() => onClick(index)}>
+          // Componente de framermotion para animar el componente dentro de el
+          <AnimatePresence> 
+            <SquareIcon turn={children} />
+          </AnimatePresence>
+        </div>
+      )
+    }
+    
+    export default Square
+  ```
+</div>
+
+La funcionalidad general del juego se separó en 2 partes: la lógica y la parte del cliente donde se implementaros diversos hooks.
+
+Para verificar quien es el ganador de la partida utilizamos la siguiente lógica. Cabe aclarar que `board{:ts}` es una matríz 3x3 que puede tener los valores `X{:ts}`, `Y{:ts}` o `null{:ts}`. 
+
+<div data-language="ts">
+  ```ts
+    import { WINNING_COMBO } from '../consts/consts'
+    import { type SquareOptions } from '../types/types'
+    
+    export const verifyWinner = (board: SquareOptions[]): boolean => {
+      for (let i = 0; WINNING_COMBO.length > i; i++) {
+        const [a, b, c] = WINNING_COMBO[i]
+        if (board[a] !== null && board[a] === board[b] && board[c] === board[b]) {
+          return true
+        }
+      }
+      return false
+    }
+  ```
+</div>
+
+Para guardar la partida se puede utilizar el `localStorage{:ts}` y lo implementamos de la siguiente manera.
+
+<div data-language="ts">
+  ```ts
+    import { type TurnType, type SquareOptions } from '../types/types'
+
+    export const setStorage = (
+        label: string, 
+        objectToSave: (SquareOptions[] | TurnType)
+      ): void => {
+      localStorage.setItem(label, JSON.stringify(objectToSave))
+    }
+
+    export const getStorage = (label: string): SquareOptions[] | TurnType => {
+      return JSON.parse(localStorage.getItem(label) as string)
+    }
+  ```
+</div>
+
+Teniendo en cuenta la lógica y funcionalidad que se creó anteriormente, se hizo un hook personalizado para manejar la aplicación.
+
+<div data-language="ts">
+  ```ts
+    import { useState } from 'react'
+    import { OPTIONS } from '../consts/consts'
+    import { verifyWinner } from '../logic/logic'
+    import { type SquareOptions, type TurnType } from '../types/types'
+    import { getStorage, setStorage } from '../localStorage/localStorage'
+
+    interface ReturnType {
+      turn: TurnType
+      resetBoard: () => void
+      board: SquareOptions[]
+      winner: TurnType
+      handleClick: (index: number) => void
+      winnerPopup: boolean
+    }
+
+    export const useBoard = (): ReturnType => {
+      const [winner, setWinner] = useState<TurnType>(OPTIONS.X)
+      const [winnerPopup, setWinnerPopup] = useState<boolean>(false)
+
+      const [turn, setTurn] = useState<TurnType>(() => {
+        const turn = getStorage('turn')
+        if (turn !== null) {
+          return turn as TurnType
+        }
+        return OPTIONS.X
+      })
+
+      const [board, setBoard] = useState<SquareOptions[]>(() => {
+        // cargamos la partida que esté guardade en el localStorage
+        const storage = getStorage('board')
+        if (storage !== null) {
+          return storage as SquareOptions[]
+        }
+        return new Array(9).fill(null)
+      })
+
+      const handleClick = (index: number): void => {
+        const square = board[index]
+        if (square === null && !winnerPopup) {
+          const newTurn = turn === OPTIONS.X ? OPTIONS.O : OPTIONS.X
+          const newBoard = [...board]
+          newBoard[index] = turn
+          setStorage('board', newBoard)
+          setStorage('turn', newTurn)
+          setBoard(newBoard)
+          setTurn(newTurn)
+          validateWinner(newBoard)
+        }
+      }
+
+      const resetBoard = (): void => {
+        setTurn(OPTIONS.X)
+        const newBoard = new Array(9).fill(null)
+        setBoard(newBoard)
+        setStorage('board', newBoard)
+        setStorage('turn', OPTIONS.X)
+      }
+
+      // validar el ganador de la partida y mostrar un popup a este.
+      const validateWinner = (newBoard: SquareOptions[]): void => {
+        if (verifyWinner(newBoard)) {
+          setWinner(turn)
+          setWinnerPopup(true)
+          setTimeout(() => {
+            setWinnerPopup(false)
+            resetBoard()
+          }, 3000)
+        }
+      }
+      return {
+        resetBoard,
+        board,
+        winner,
+        handleClick,
+        winnerPopup,
+        turn
+      }
+    }
+  ```
+</div>
+
+<hr />
+
+## Componente principal 
+
+El componente principal `<Board />{:ts}` donde estará el tablero de juego, quedaría de la siguiente manera.
+
+<div data-language="ts">
+  ```ts
+    import Square from './Square'
+    import Footer from './Footer'
+    import WinnerPopup from './WinnerPopup'
+    import { useBoard } from '../hooks/useBoard'
+    import { AnimatePresence } from 'framer-motion'
+    import LineWinner from './LineWinner'
+    
+    const Board = (): JSX.Element => {
+      const { board, handleClick, resetBoard, winner, winnerPopup, turn } = useBoard()
+    
+      return (
+        <>
+          <AnimatePresence>
+            {
+              winnerPopup && <WinnerPopup winner={winner} />
+            }
+          </AnimatePresence>
+          <main className="relative grid grid-cols-3 grid-rows-3 mt-10 board">
+            {
+              board.map((value, index) => {
+                return (
+                  <Square key={index} index={index} onClick={handleClick}>
+                    {value}
+                  </Square>
+                )
+              })
+            }
+          </main>
+          <Footer turn={turn} resetBoard={resetBoard} />
+        </>
+      )
+    }
+    
+    export default Board  
+  ```
+</div>
+
+Varias funcionalidades interesantes quedaron por explicar, puedes ver su implementación en el repositorio del proyecto en <a href="https://github.com/RubertG/tres-en-raya-ts" target="_blank">GitHub</a>, tambien puedes ver el juego dando <a href="https://tres-en-raya-ts.netlify.app/" target="_blank">click aquí</a>.

@@ -33,12 +33,12 @@
 		ol {
 			@include paragraf();
 			margin-bottom: 20px;
+			line-height: 1.75rem;
 		}
 
 		h1,
 		h2,
 		h3 {
-			display: inline-block;
 			color: $text-white;
 			font-family: prompt_regular;
 			letter-spacing: 1.1px;
@@ -259,17 +259,8 @@
 	}
 
 	strong {
-		background: linear-gradient(
-			90deg,
-			$success 0%,
-			rgba(189, 0, 255, 1) 60%,
-			$primary
-		);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		font-family: prompt_regular;
-		// color: $text-white;
+		color: $text-white;
+		@include text_gradient();
 	}
 
 	a {
@@ -286,7 +277,8 @@
 			ul,
 			ol {
 				font-size: 1.1rem;
-				font-family: prompt_light;
+				font-family: prompt_regular;
+				line-height: 1.85rem;
 			}
 
 			h1 {
