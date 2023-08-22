@@ -21,6 +21,15 @@
 	background-clip: text;
 }
 
+@mixin bg_gradient() {
+	background: linear-gradient(
+		90deg,
+		$success 0%,
+		rgba(189, 0, 255, 1) 60%,
+		$primary
+	);
+}
+
 @mixin title_lg() {
 	font-size: 3.5rem;
 	font-family: prompt_bold;

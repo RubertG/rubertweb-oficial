@@ -5,13 +5,13 @@
   target: React
 ---
 
-El Tres en Raya es un juego sencillo que todos conocemos. En este artículo exploraremos lo más importante sobre la lógica, la funcionalidad y la interfaz de este juego. Se utilizaron tecnologías como React, Tailwind, TypeScript y FramerMotion. Es fundamental tener en cuenta que este proyecto se inició utilizando la herramienta <a href="https://es.vitejs.dev/" target="_blank">Vite</a>.
+El Tres en Raya es un juego sencillo que todos conocemos. En este artículo exploraremos lo más importante sobre la lógica, la funcionalidad y la interfaz de este juego. Se utilizaron tecnologías como React, Tailwind, TypeScript y FramerMotion. Es fundamental tener en cuenta que este proyecto se inició utilizando la herramienta <a href="https://es.vitejs.dev/" target="_blank" title="Vite">Vite</a>.
 
 <hr />
 
 ## Estructura de carpetas del proyecto
 
-Tomando la estructura que nos proporciona <a href="https://es.vitejs.dev/" target="_blank">Vite</a> al crear un proyecto, se organizó en distintas carpetas, lo que dio como resultado la siguiente estructura.
+Tomando la estructura que nos proporciona <a href="https://es.vitejs.dev/" target="_blank" title="Vite">Vite</a> al crear un proyecto, se organizó en distintas carpetas, lo que dio como resultado la siguiente estructura.
 
 <div data-language='sh'>
 	```sh
@@ -66,7 +66,7 @@ Para el desarrollo de la lógica y funcionalidad hay varias constantes important
 
 ## Componentes importantes y lógica
 
-Cada icon que aparece en cada casilla del tablero de juego, será un componente `<SquareIcon />{:ts}`. Este recibe como prop el turno `turn{:ts}` en el que va el juego, es decir, una `OPTIONS{:ts}` de las constantes anteriores. El componente renderiza un svg de <a href="https://www.framer.com/motion/" target="_blank">FramerMotion</a> dependiendo del turno para que esté animado.
+Cada icon que aparece en cada casilla del tablero de juego, será un componente `<SquareIcon />{:ts}`. Este recibe como prop el turno `turn{:ts}` en el que va el juego, es decir, una `OPTIONS{:ts}` de las constantes anteriores. El componente renderiza un svg de <a href="https://www.framer.com/motion/" target="_blank" title="FramerMotion">FramerMotion</a> dependiendo del turno para que esté animado.
 
 <div data-language="ts">
   ```ts 
@@ -355,4 +355,4 @@ El componente principal `<Board />{:ts}` donde estará el tablero de juego, qued
   ```
 </div>
 
-Varias funcionalidades interesantes quedaron por explicar, puedes ver su implementación en el repositorio del proyecto en <a href="https://github.com/RubertG/tres-en-raya-ts" target="_blank">GitHub</a>, tambien puedes ver el juego dando <a href="https://tres-en-raya-ts.netlify.app/" target="_blank">click aquí</a>.
+Varias funcionalidades interesantes quedaron por explicar, puedes ver su implementación en el repositorio del proyecto en <a href="https://github.com/RubertG/tres-en-raya-ts" target="_blank" title="GitHub">GitHub</a>, tambien puedes ver el juego dando <a href="https://tres-en-raya-ts.netlify.app/" target="_blank" title="Ir a la página web">click aquí</a>.
