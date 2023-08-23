@@ -14,7 +14,10 @@ const authors: Author = {
 export const metadata: Metadata = {
   title: 'RubertWeb - Página oficial de Rubert Gonzalez, Desarrollador web.',
   description: 'Desarrollador web front-end apasionado por la programación en busca de nuevos desafíos, si requieres de mis servicios contáctame.',
-  authors
+  authors,
+  creator: 'Rubert Gonzalez',
+  keywords: 'rubert, web, desarrollador web, front-end, programación, servicios, contacto, blog, portfolio, portafolio',
+  colorScheme: 'dark'
 }
 
 const itemsNav: LinkNav[] = [
