@@ -2,7 +2,7 @@
 	position: absolute;
 	top: 10%;
 	right: 20%;
-	box-shadow: 0 0 300px 80px #7403a14d, -250px 750px 300px 80px #7403a138;
+	box-shadow: 0 0 300px 80px #7403a13b;
 	z-index: -1;
 }
 
@@ -10,7 +10,8 @@
 	.decoration {
 		top: 20%;
 		right: 10%;
-		box-shadow: -100px 100px 350px 100px #7403a14d, -1000px 500px 350px 100px #7403a13f;
-	z-index: 2;
+		box-shadow: -100px 100px 350px 100px #7403a14d,
+			-1000px 500px 350px 100px #7403a13f;
+		z-index: 2;
 	}
 }
