@@ -5,7 +5,7 @@ import Styles from './Contact.module.scss'
 import { type Metadata } from 'next/types'
 
 export const metadata: Metadata = {
-  title: 'Blog - Sitio oficial de Rubert Gonzalez, Desarrollador web',
+  title: 'Contacto - Sitio oficial de Rubert Gonzalez, Desarrollador web',
   description: 'Si necesitas un desarrollador web fron-end con conocimientos en React, TypeScript, NextJS, Sass, Tailwind entra y contáctame. Rubert Gonzalez.',
   creator: 'Rubert Gonzalez',
   keywords: 'contacto, Rubert Gonzalez, Rubert, Gonzalez, front-end developer, Desarrollador web, Front-end, React, NextJS, TypeScript, Sass, Tailwind, html, css, javascript'

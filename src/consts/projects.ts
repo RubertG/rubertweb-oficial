@@ -11,7 +11,7 @@ export const PROJECTS: ProjectType[] = [
   },
   {
     title: 'KevinWeb',
-    description: 'Portafolio/Blog con página privada para administrar los articulos: agregar, borrar y editar.',
+    description: 'Portafolio/Blog con página privada para administrar los artículos: agregar, borrar y editar.',
     img: '/assets/projects/kevinweb.webp',
     href: 'https://kevinweb-kappa.vercel.app/',
     tecnologies: [NEXTJS, SASS, FIREBASE, FIGMA]
@@ -31,6 +31,14 @@ export const PROJECTS: ProjectType[] = [
     github: 'https://github.com/RubertG/TODO-react',
     href: 'https://organiza-tareas.netlify.app/',
     tecnologies: [REACT, CSS]
+  },
+  {
+    title: 'TODO - Prisma',
+    description: 'TODO básico hecho con Prisma y la base de datos PostgreSQL para llevar las diferentes tareas.',
+    img: '/assets/projects/todo-prisma.webp',
+    github: 'https://github.com/RubertG/TODO-crud-prisma',
+    href: 'https://crud-prisma-rubertg.vercel.app/',
+    tecnologies: [NEXTJS, TAILWIND, TYPESCRIPT]
   },
   {
     title: 'Guessing game',
