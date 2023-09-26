@@ -1,5 +1,5 @@
 import { type ProjectType } from '@/types/types'
-import { HTML, CSS, FIGMA, FIREBASE, NEXTJS, REACT, SASS, TAILWIND, TYPESCRIPT, JS } from './consts'
+import { CSS, FIGMA, FIREBASE, NEXTJS, REACT, SASS, TAILWIND, TYPESCRIPT } from './consts'
 export const PROJECTS: ProjectType[] = [
   {
     title: 'TODO App',
@@ -38,14 +38,14 @@ export const PROJECTS: ProjectType[] = [
     img: '/assets/projects/todo-prisma.webp',
     github: 'https://github.com/RubertG/TODO-crud-prisma',
     href: 'https://crud-prisma-rubertg.vercel.app/',
-    tecnologies: [NEXTJS, TAILWIND, TYPESCRIPT]
+    tecnologies: [NEXTJS, TYPESCRIPT, TAILWIND]
   },
   {
-    title: 'Guessing game',
-    description: 'Juego en el que se debe adivinar un número que se encuentra dentro de un rango específico dado por el usuario.',
-    img: '/assets/projects/guessing-game.webp',
-    github: 'https://github.com/RubertG/GuessingGame',
-    href: 'https://rubertg.github.io/GuessingGame/',
-    tecnologies: [HTML, CSS, JS]
+    title: 'Countries app',
+    description: 'Web para buscar información relevantes de todos los paises del mundo. Ejercicio práctico de FrontendMentor.',
+    img: '/assets/projects/country-app.webp',
+    github: 'https://github.com/RubertG/countries-app',
+    href: 'https://countries-app-smoky-chi.vercel.app/',
+    tecnologies: [NEXTJS, TYPESCRIPT, TAILWIND]
   }
 ]
