@@ -2,6 +2,14 @@ import { type ProjectType } from '@/types/types'
 import { CSS, FIGMA, FIREBASE, NEXTJS, REACT, SASS, TAILWIND, TYPESCRIPT } from './consts'
 export const PROJECTS: ProjectType[] = [
   {
+    title: 'Fake ecommerce',
+    description: 'Tienda de productos como gorras, ropa para hombre y mujer y electrodomesticos. Tiene su propia API y autenticación con Firebase.',
+    img: '/assets/projects/fake-ecommerce.webp',
+    github: 'https://github.com/RubertG/ecommerce',
+    href: 'https://fake-ecommerce-eta.vercel.app',
+    tecnologies: [REACT, TAILWIND, NEXTJS, FIREBASE, FIGMA]
+  },
+  {
     title: 'TODO App',
     description: 'Planifica y prioriza tus actividades diarias. App con autenticación de usuarios y base de datos.',
     img: '/assets/projects/todo-app.webp',
@@ -23,29 +31,5 @@ export const PROJECTS: ProjectType[] = [
     github: 'https://github.com/RubertG/tres-en-raya-ts',
     href: 'https://tres-en-raya-ts.netlify.app/',
     tecnologies: [REACT, TYPESCRIPT, TAILWIND]
-  },
-  {
-    title: 'TODO React',
-    description: 'TODO básico para administrar tus tareas. Diseño tomado de FrontendMentor. Guarda tus tareas en el localStorage.',
-    img: '/assets/projects/todo.webp',
-    github: 'https://github.com/RubertG/TODO-react',
-    href: 'https://organiza-tareas.netlify.app/',
-    tecnologies: [REACT, CSS]
-  },
-  {
-    title: 'TODO - Prisma',
-    description: 'TODO básico hecho con Prisma y la base de datos PostgreSQL para llevar las diferentes tareas.',
-    img: '/assets/projects/todo-prisma.webp',
-    github: 'https://github.com/RubertG/TODO-crud-prisma',
-    href: 'https://crud-prisma-rubertg.vercel.app/',
-    tecnologies: [NEXTJS, TYPESCRIPT, TAILWIND]
-  },
-  {
-    title: 'Countries app',
-    description: 'Web para buscar información relevantes de todos los paises del mundo. Ejercicio práctico de FrontendMentor.',
-    img: '/assets/projects/country-app.webp',
-    github: 'https://github.com/RubertG/countries-app',
-    href: 'https://countries-app-smoky-chi.vercel.app/',
-    tecnologies: [NEXTJS, TYPESCRIPT, TAILWIND]
   }
 ]
