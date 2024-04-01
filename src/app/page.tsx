@@ -7,8 +7,8 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Header />
-      <AboutMe />
       <Projects />
+      <AboutMe />
     </>
   )
 }

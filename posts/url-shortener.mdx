@@ -1,0 +1,30 @@
+---
+  title: Acortador de links, ejemplo de como diseñar la base de datos básica y muestra del proyecto en una aplicación real.
+  description: Diseño básico de la base de datos para una aplicación de acortador de links
+  date: 2024-04-01
+  target: NextJS
+---
+
+Los acortadores de enlaces sirven para simplificar la manera en que compartimos y gestionamos los enlaces en línea. En el siguiente artículo, verás la estructura básica de la base de datos para poder desarrollar un proyecto de este tipo y el proyecto implementado en <a href="https://vercel.com/" target="_blank" title="NextJS">Next.js</a> con ayuda de <a href="https://supabase.com/" target="_blank" title="Supabase">Supabase</a> para la autenticación y la base de datos. Cabe aclarar que <a href="https://supabase.com/" target="_blank" title="Supabase">Supabase</a> simplifica el desarrollo de aplicaciones al proporcionar una infraestructura de backend completa y fácil de usar.
+
+<hr />
+
+## Estructura de la base de datos
+
+Para este proyecto se utilizará una estructura básica de base de datos para simplicar el desarrollo de la aplicación. Tendremos solo 3 tablas: **users**, **links** y **visits_links**.
+
+### ¿Que se guardará en cada tabla?
+
+- **Users**<span>: todos los usuarios autenticados. Se almacenará su nombre, avatar y fecha de creación.</span>
+- **Links**<span>: los links creados por los usuarios de la aplicación. Se guardará el nombre, url personalizada o corta, url original, id del usuario que la creó y la fecha de creación.</span>
+- **Visits_links**<span>: todas las visitas o clicks que hagan las personas a tu enlace personalizado. Se almacenará la fecha de creación y el id del link al que se hizo click</span>
+
+<div style={{ aspectRatio: '25/9' }}
+>
+	<img
+		src='/assets/articles/DER-short-links.png'
+		alt='Diseño entidad relación'
+	/>
+</div>
+
+Cabe resaltar que **links** tendrá de llave foránea el id de **users** y **visits_links** tendrá de llave foránea el id de la tabla **link**.

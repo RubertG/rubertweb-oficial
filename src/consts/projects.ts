@@ -1,13 +1,21 @@
 import { type ProjectType } from '@/types/types'
-import { CSS, FIGMA, FIREBASE, NEXTJS, REACT, SASS, TAILWIND, TYPESCRIPT } from './consts'
+import { CSS, FIGMA, FIREBASE, NEXTJS, REACT, SASS, SUPABASE, TAILWIND, TYPESCRIPT } from './consts'
 export const PROJECTS: ProjectType[] = [
   {
+    title: 'URL shortener',
+    description: 'Acortador de enlaces con autenticación y base de datos. Podrás administrar tus enlaces personalizados.',
+    img: '/assets/projects/url-shortener.webp',
+    github: 'https://github.com/RubertG/acortador-de-links',
+    href: 'https://rdli.vercel.app/',
+    tecnologies: [NEXTJS, TAILWIND, SUPABASE]
+  },
+  {
     title: 'Fake ecommerce',
-    description: 'Tienda de productos como gorras, ropa para hombre y mujer y electrodomesticos. Tiene su propia API y autenticación con Firebase.',
+    description: 'Tienda de productos con base de datos y autenticación con Firebase. Además con método de pago de MercadoPago.',
     img: '/assets/projects/fake-ecommerce.webp',
     github: 'https://github.com/RubertG/ecommerce',
     href: 'https://fake-ecommerce-eta.vercel.app',
-    tecnologies: [REACT, TAILWIND, NEXTJS, FIREBASE, FIGMA]
+    tecnologies: [NEXTJS, TAILWIND, FIREBASE, FIGMA]
   },
   {
     title: 'TODO App',

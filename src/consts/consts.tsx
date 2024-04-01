@@ -1,4 +1,4 @@
-import { CSS as CSSIcon, Figma, Firebase, GitHub, HTML as HTMLIcon, Instagram, JS as JSIcon, Linkedin, Mail, NextJS, React, Sass, Tailwind, Thread, Twitter, TypeScript } from '@/components/Icons/Icons'
+import { CSS as CSSIcon, Figma, Firebase, GitHub, HTML as HTMLIcon, Instagram, JS as JSIcon, Linkedin, Mail, NextJS, React, Sass, Supabase, Tailwind, Thread, Twitter, TypeScript } from '@/components/Icons/Icons'
 import { type SocialLink, type TecnologyType } from '@/types/types'
 
 export const HTML: TecnologyType = { name: 'HTML', icon: <HTMLIcon /> }
@@ -11,6 +11,7 @@ export const FIREBASE: TecnologyType = { name: 'Firebase', icon: <Firebase /> }
 export const NEXTJS: TecnologyType = { name: 'NextJS', icon: <NextJS /> }
 export const TAILWIND: TecnologyType = { name: 'Tailwind CSS', icon: <Tailwind /> }
 export const FIGMA: TecnologyType = { name: 'Figma', icon: <Figma /> }
+export const SUPABASE: TecnologyType = { name: 'Supabase', icon: <Supabase /> }
 
 export const TOTAL_TECNOLOGIES: TecnologyType[] = [
   HTML,
