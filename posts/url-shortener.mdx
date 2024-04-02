@@ -5,7 +5,7 @@
   target: NextJS
 ---
 
-Los acortadores de enlaces sirven para simplificar la manera en que compartimos y gestionamos los enlaces en línea. En el siguiente artículo, verás la estructura básica de la base de datos para poder desarrollar un proyecto de este tipo y el proyecto implementado en <a href="https://vercel.com/" target="_blank" title="NextJS">Next.js</a> con ayuda de <a href="https://supabase.com/" target="_blank" title="Supabase">Supabase</a> para la autenticación y la base de datos. Cabe aclarar que <a href="https://supabase.com/" target="_blank" title="Supabase">Supabase</a> simplifica el desarrollo de aplicaciones al proporcionar una infraestructura de backend completa y fácil de usar.
+Los acortadores de enlaces sirven para simplificar la manera en que compartimos y gestionamos los enlaces en línea. En el siguiente artículo, verás la estructura básica de la base de datos para poder desarrollar un proyecto de este tipo y el proyecto implementado en <a href="https://vercel.com/" target="_blank" title="NextJS">NextJS</a> con ayuda de <a href="https://supabase.com/" target="_blank" title="Supabase">Supabase</a> para la autenticación y la base de datos. Cabe aclarar que <a href="https://supabase.com/" target="_blank" title="Supabase">Supabase</a> simplifica el desarrollo de aplicaciones al proporcionar una infraestructura de backend completa y fácil de usar.
 
 <hr />
 
@@ -19,12 +19,253 @@ Para este proyecto se utilizará una estructura básica de base de datos para si
 - **Links**<span>: los links creados por los usuarios de la aplicación. Se guardará el nombre, url personalizada o corta, url original, id del usuario que la creó y la fecha de creación.</span>
 - **Visits_links**<span>: todas las visitas o clicks que hagan las personas a tu enlace personalizado. Se almacenará la fecha de creación y el id del link al que se hizo click</span>
 
-<div style={{ aspectRatio: '25/9' }}
->
+<div style={{ aspectRatio: "33/9" }}>
 	<img
-		src='/assets/articles/DER-short-links.png'
+		src='/assets/articles/DER-short-links.webp'
 		alt='Diseño entidad relación'
 	/>
 </div>
 
 Cabe resaltar que **links** tendrá de llave foránea el id de **users** y **visits_links** tendrá de llave foránea el id de la tabla **link**.
+
+<hr />
+
+## Puntos clave de la aplicación
+
+De manera general verás los puntos claves de la aplicación para que tenga el funcionamiento que queremos. Tu puedes organizar las rutas de la aplicación como quieras. Todo estará de manera resumida en este artículo, para ver el código completo de la aplicación haz <a href='https://github.com/RubertG/acortador-de-links' target="_blank">click aquí.</a>
+
+Nos saltaremos toda la conexión con Supabase y como hacer autenticación con github,
+estos pasos los puedes conseguir en la <a href="https://supabase.com/docs" target="_blank" title="Supabase">documentación de Supabase</a>. 
+
+### Crear cliente de Supabase en el servidor 
+
+<div data-language="ts">
+  ```ts
+  export function createClient () {
+    const cookieStore = cookies()
+
+    // El tipo Database se puede obtener gracias a un comando de Supabase.
+    // Para más información consulta la documentación de Supabase
+
+    return createServerClient<Database>(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          get (name: string) {
+            return cookieStore.get(name)?.value
+          }
+        }
+      }
+    )
+  }
+  ```
+</div>
+
+### Crear cliente de Supabase en el cliente 
+
+<div data-language="ts">
+  ```ts
+  'use client'
+
+  export function createClient () {
+    return createBrowserClient<Database>(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
+  }
+  ```
+</div>
+
+### Como guardar los links 
+
+Para guardar los links utilizamos los **server actions** de <a href="https://vercel.com/" target="_blank" title="NextJS">NextJS</a>.
+
+<div data-language="ts">
+  ```ts
+  export const FormCreateLink = () => {
+    const addLink = async(formData: FormData) => {
+      'use server'
+
+      // obtenemos el name y url del formulario 
+      const name = formData.get('name')?.toString().replace(' ', '-')
+      const url = formData.get('url')?.toString()
+
+      // Verificamos si la url comienza con el protocolo http
+      if (!url.startsWith('http')) {
+        throw new Error('URL invalida') 
+      }
+
+      // Verificamos si el name no exite 
+      const supabase = createClient()
+      const { data, error: errorSelect } = await supabase.from('links').select('*').eq('name', name)
+
+      if (errorSelect) {
+        throw new Error('Error al guardar el enlace') 
+      }
+
+      if (data.length !== 0) {
+        throw new Error('El nombre ya existe') 
+      }
+
+      // Guardamos el link
+      const { data: { user } } = await supabase.auth.getUser()
+      const shortUrl = `https://dominio.ejemplo/${name}`
+      const { error } = await supabase.from('links').insert({ name, url, short_url: shortUrl, uid_user: user?.id })
+
+      if (error) {
+        throw new Error('Error al guardar el enlace') 
+      }
+    }
+
+    return (
+      <form action={addLink}>
+        <input type='text' name='name' placeholder='Nombre del enlace' required />
+        <input type='text' name='url' placeholder='URL' required />
+        <button>Duardae enlace</button>
+      </form>
+    )
+  }
+  ```
+</div>
+
+### Como editar los links 
+
+Recuerda que para ver, guardar, actualizar y actualizar debes editar las políticas de la base de datos de <a href="https://supabase.com/docs" target="_blank" title="Supabase">Supabase.</a>
+
+<div data-language="ts">
+  ```ts
+  interface Props {
+    link: TypeLink
+  }
+
+  export const FormEditLink: FC<Props> = ({ link }) => {
+
+    const editLink = async(formData: FormData) => {
+      'use server'
+
+      // obtenemos el name del formulario 
+      const name = formData.get('name')?.toString().replace(' ', '-')
+
+      // Verificamos si el name no exite 
+      const supabase = createClient()
+      const { data, error: errorSelect } = await supabase.from('links').select('*').eq('name', name)
+
+      if (errorSelect) {
+        throw new Error('Error al guardar el enlace') 
+      }
+
+      if (data.length !== 0) {
+        throw new Error('El nombre ya existe') 
+      }
+
+      // Guardamos el link editado
+      const shortUrl = `https://dominio.ejemplo/${name}`
+      const { error } = await supabase
+        .from('links')
+        .update({ name, short_url: shortUrl })
+        .eq('id', id)
+
+      if (error) {
+        throw new Error('Error al guardar el enlace') 
+      }
+    }
+
+    return (
+      <form action={editLink}>
+        <input type='text' name='name' placeholder='Nombre del enlace' />
+        <button>Editar enlace</button>
+      </form>
+    )
+  }
+  ```
+</div>
+
+### Como borrar los links 
+
+Para borrar un link podríamos utilizar un botón con la siguiente funcionalidad.
+
+<div data-lenguage='ts'>
+  ```ts
+  export const DeleteButton = () => {
+    const handleDelete = async () => {
+      const { error } = await supabase.from('links').delete().eq('id',  link.id)
+      if (error) {
+        throw new Error('Error al eliminar el link')
+      }
+    } 
+
+    return (
+      <button type='button' onClick={handleDelete}>
+        // icono de la caneca de basura 
+        <TrashIcon  />
+      </button>
+    )
+  } 
+  ```
+</div>
+
+### Redireccionamiento a la URL original
+
+Este es el punto clave de la aplicación. Vamos a crear la ruta `/[name]{:sh}`, esta nos va a servir para obtener el nombre del link, buscar el enlace por dicho nombre en la base de datos y redirigir a la URL original. 
+
+Por ejemplo, un usuario `x{:sh}` da click en el enlace `https://dominio.ejemplo/rubertweb{:sh}`, la aplicacion extrae el nombre de la URL `rubertweb{:sh}`, obtiene el link que coincida con el nombre dado de la base de datos y redirige a la URL original que en este caso sería `https://rubertweb.dev{:sh}`. 
+
+Recordemos que el link que se obtiene de la tabla **links** tienen las propiedades nombre, url personalizada o corta, url original, id del usuario que la creó y la fecha de creación.
+
+El código del archivo `/[name]/page.tsx{:sh}` quedaria de la siguiente manera:
+
+<div data-lenguage='ts'>
+  ```ts
+  interface Props {
+    params: {
+      name: string
+    }
+  }
+
+  const RedirectingPage: FC<Props> = async ({ params: { name } }) => {
+    const supabase = createClient()
+    const { data: links, error } = await supabase.from('links').select('*').eq('name', decodeURIComponent(name))
+
+    if (error != null || links == null || links?.length === 0) {
+      return redirect('/')
+    }
+
+    return redirect(links[0].url)
+  }
+
+  export default RedirectingPage
+  ```
+</div>
+
+### Como guardar los clicks de los enlaces personalizados 
+
+Para guadar el click hecho en un enlace vamos a agregar una funcionalidad al componente anterior.
+
+<div data-lenguage='ts'>
+  ```ts
+  interface Props {
+    params: {
+      name: string
+    }
+  }
+
+  const RedirectingPage: FC<Props> = async ({ params: { name } }) => {
+    const supabase = createClient()
+    const { data: links, error } = await supabase.from('links').select('*').eq('name', decodeURIComponent(name))
+
+    if (error != null || links == null || links?.length === 0) {
+      return redirect('/')
+    }
+
+    // La siguiente linea inserta en la tabla visits_links un nuevo registro con la id del link. 
+    // La base de datos agrega id y fecha de creacion automáticamente 
+    await supabase.from('visits_links').insert({ uid_link: links[0].id })
+    return redirect(links[0].url)
+  }
+
+  export default RedirectingPage
+  ```
+</div>
+
+Con estos componentes tendrás las funcionalidades básicas de la aplicación. Recuerda que puedes ver el código completo del ejemplo en mi repositorio de <a href='https://github.com/RubertG/acortador-de-links' target="_blank">Github.</a> Tambien me puedes contactar para mas información en <a href='https://rubertweb.dev/contact' target="_blank">mi página de contacto ❤️.</a>
