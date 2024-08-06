@@ -7,7 +7,15 @@ export const PROJECTS: ProjectType[] = [
     img: '/assets/projects/url-shortener.webp',
     github: 'https://github.com/RubertG/acortador-de-links',
     href: 'https://rdli.vercel.app/',
-    tecnologies: [NEXTJS, TAILWIND, SUPABASE]
+    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, SUPABASE]
+  },
+  {
+    title: 'Coordina',
+    description: 'Aplicación que ayuda en la toma de decisiones al momento de elegir los integrantes de un proyecto de software según los requerimientos dados.',
+    img: '/assets/projects/coordina.webp',
+    github: 'https://github.com/RubertG/coordina',
+    href: 'https://coordina.vercel.app',
+    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, SUPABASE]
   },
   {
     title: 'Fake ecommerce',
@@ -15,7 +23,7 @@ export const PROJECTS: ProjectType[] = [
     img: '/assets/projects/fake-ecommerce.webp',
     github: 'https://github.com/RubertG/ecommerce',
     href: 'https://fake-ecommerce-eta.vercel.app',
-    tecnologies: [NEXTJS, TAILWIND, FIREBASE, FIGMA]
+    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, FIREBASE, FIGMA]
   },
   {
     title: 'TODO App',
@@ -31,13 +39,5 @@ export const PROJECTS: ProjectType[] = [
     img: '/assets/projects/kevinweb.webp',
     href: 'https://kevinweb-kappa.vercel.app/',
     tecnologies: [NEXTJS, SASS, FIREBASE, FIGMA]
-  },
-  {
-    title: 'Tres en raya - TS',
-    description: 'Juego clásico de Tres en raya. Guarda tu partida en el localStorage. Animaciones hechas con FramerMotion.',
-    img: '/assets/projects/tres-en-raya-ts.webp',
-    github: 'https://github.com/RubertG/tres-en-raya-ts',
-    href: 'https://tres-en-raya-ts.netlify.app/',
-    tecnologies: [REACT, TYPESCRIPT, TAILWIND]
   }
 ]

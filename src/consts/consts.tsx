@@ -1,4 +1,4 @@
-import { CSS as CSSIcon, Figma, Firebase, GitHub, HTML as HTMLIcon, Instagram, JS as JSIcon, Linkedin, Mail, NextJS, React, Sass, Supabase, Tailwind, Thread, Twitter, TypeScript } from '@/components/Icons/Icons'
+import { CSS as CSSIcon, Figma, Firebase, GitHub, HTML as HTMLIcon, Instagram, JS as JSIcon, Linkedin, Mail, NextJS, Node, React, Sass, Supabase, Tailwind, TypeScript } from '@/components/Icons/Icons'
 import { type SocialLink, type TecnologyType } from '@/types/types'
 
 export const HTML: TecnologyType = { name: 'HTML', icon: <HTMLIcon /> }
@@ -12,6 +12,7 @@ export const NEXTJS: TecnologyType = { name: 'NextJS', icon: <NextJS /> }
 export const TAILWIND: TecnologyType = { name: 'Tailwind CSS', icon: <Tailwind /> }
 export const FIGMA: TecnologyType = { name: 'Figma', icon: <Figma /> }
 export const SUPABASE: TecnologyType = { name: 'Supabase', icon: <Supabase /> }
+export const NODE: TecnologyType = { name: 'Node', icon: <Node /> }
 
 export const TOTAL_TECNOLOGIES: TecnologyType[] = [
   HTML,
@@ -19,11 +20,10 @@ export const TOTAL_TECNOLOGIES: TecnologyType[] = [
   JS,
   REACT,
   TYPESCRIPT,
-  SASS,
+  TAILWIND,
   FIREBASE,
   NEXTJS,
-  FIGMA,
-  TAILWIND
+  FIGMA
 ]
 
 export const TECNOLOGIES: TecnologyType[] = [
@@ -32,17 +32,18 @@ export const TECNOLOGIES: TecnologyType[] = [
   JS,
   REACT,
   TYPESCRIPT,
+  TAILWIND,
   SASS,
   FIREBASE,
+  SUPABASE,
   NEXTJS,
+  NODE,
   FIGMA
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'Twitter', href: 'https://twitter.com/Rubert_G', icon: <Twitter /> },
   { name: 'Instagram', href: 'https://www.instagram.com/rubert_g12/', icon: <Instagram /> },
   { name: 'Gmail', href: 'mailto:rubertgonzalez5@gmail.com', icon: <Mail /> },
   { name: 'GitHub', href: 'https://github.com/RubertG', icon: <GitHub /> },
-  { name: 'Linkedin', href: 'https://www.linkedin.com/in/rubert-gonzalez-8782b8252/', icon: <Linkedin /> },
-  { name: 'Threads', href: 'https://www.threads.net/@rubert_g12', icon: <Thread /> }
+  { name: 'Linkedin', href: 'https://www.linkedin.com/in/rubert-gonzalez-8782b8252/', icon: <Linkedin /> }
 ]

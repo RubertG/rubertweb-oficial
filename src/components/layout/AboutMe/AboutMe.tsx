@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
-import { TECNOLOGIES } from '@/consts/consts'
+import { TOTAL_TECNOLOGIES } from '@/consts/consts'
 import Styles from './AboutMe.module.scss'
 import { DivisionOne } from '@/components/Icons/Division'
 import { parseTecnologies } from '@/logic/parseTecnologies'
@@ -24,7 +24,7 @@ function AboutMe(): JSX.Element {
           <h3>Skills</h3>
           <div className={Styles.tecnologies}>
             {
-              TECNOLOGIES.map(({ name, icon }) => {
+              TOTAL_TECNOLOGIES.map(({ name, icon }) => {
                 return <div key={name} title={name}>{icon}</div>
               })
             }

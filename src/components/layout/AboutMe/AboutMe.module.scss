@@ -19,7 +19,7 @@
 		p {
 			@include paragraf();
 			margin-top: 15px;
-      text-wrap: balance;
+			text-wrap: balance;
 
 			&:first-child {
 				margin: 0;
@@ -119,8 +119,12 @@
 
 @media (min-width: 1440px) {
 	.container {
-   margin-bottom: 200px;
-  }
+		margin-bottom: 200px;
+
+    h2 {
+      margin-top: 200px;
+    }
+	}
 }
 
 @keyframes entry {
