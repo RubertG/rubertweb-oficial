@@ -1,6 +1,14 @@
 import { type ProjectType } from '@/types/types'
-import { CSS, FIGMA, FIREBASE, NEXTJS, REACT, SASS, SUPABASE, TAILWIND, TYPESCRIPT } from './consts'
+import { CSS, FIGMA, FIREBASE, NEXTJS, REACT, SUPABASE, TAILWIND, TYPESCRIPT } from './consts'
 export const PROJECTS: ProjectType[] = [
+  {
+    title: 'WebMinds Colombia',
+    description: 'Landing page de mi emprendimiento de desarrollo de software.',
+    img: '/assets/projects/web-minds.webp',
+    github: 'https://github.com/RubertG/web-minds',
+    href: 'https://www.web-minds-col.com/',
+    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, FIGMA]
+  },
   {
     title: 'URL shortener',
     description: 'Acortador de enlaces con autenticación y base de datos. Podrás administrar tus enlaces personalizados.',
@@ -32,12 +40,5 @@ export const PROJECTS: ProjectType[] = [
     github: 'https://github.com/RubertG/todo-app',
     href: 'https://organiza-tareas-app.netlify.app/',
     tecnologies: [REACT, CSS, FIREBASE, FIGMA]
-  },
-  {
-    title: 'KevinWeb',
-    description: 'Portafolio/Blog con página privada para administrar los artículos: agregar, borrar y editar.',
-    img: '/assets/projects/kevinweb.webp',
-    href: 'https://kevinweb-kappa.vercel.app/',
-    tecnologies: [NEXTJS, SASS, FIREBASE, FIGMA]
   }
 ]
