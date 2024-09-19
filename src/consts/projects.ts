@@ -11,10 +11,17 @@ export const PROJECTS: ProjectType[] = [
   },
   {
     title: 'Bonita maquillaje',
-    description: 'Página Linktree, catalogo en linea, carrito de compras y panel de administración para un tienda de maquillaje de Cúcuta.',
+    description: 'Página Linktree, catálogo en línea, carrito de compras y panel de administración para un tienda de maquillaje de Cúcuta.',
     img: '/assets/projects/bonita-maquillaje.webp',
     href: 'https://www.bonita-maquillaje.com/',
-    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, FIGMA]
+    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, FIREBASE, FIGMA]
+  },
+  {
+    title: 'KG Soluciones',
+    description: 'Landing page, catálogo en línea, carrito de compras y panel de administración para la empresa KG Soluciones.',
+    img: '/assets/projects/kg-soluciones.webp',
+    href: 'https://www.kg-soluciones.com/',
+    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, FIREBASE, FIGMA]
   },
   {
     title: 'URL shortener',
