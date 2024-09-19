@@ -10,6 +10,13 @@ export const PROJECTS: ProjectType[] = [
     tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, FIGMA]
   },
   {
+    title: 'Bonita maquillaje',
+    description: 'Página Linktree, catalogo en linea, carrito de compras y panel de administración para un tienda de maquillaje de Cúcuta.',
+    img: '/assets/projects/bonita-maquillaje.webp',
+    href: 'https://www.bonita-maquillaje.com/',
+    tecnologies: [TYPESCRIPT, NEXTJS, TAILWIND, FIGMA]
+  },
+  {
     title: 'URL shortener',
     description: 'Acortador de enlaces con autenticación y base de datos. Podrás administrar tus enlaces personalizados.',
     img: '/assets/projects/url-shortener.webp',
