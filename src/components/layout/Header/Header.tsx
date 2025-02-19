@@ -2,6 +2,7 @@
 import { Person } from '@/components/Icons/Icons'
 import { Button, ButtonDownload } from '../Button/Button'
 import Styles from './Header.module.scss'
+import Image from 'next/image'
 
 function Header(): JSX.Element {
   return (
@@ -25,7 +26,15 @@ function Header(): JSX.Element {
           <ButtonDownload href='assets/CV_RUBERT_GONZALEZ.pdf'>Descargar CV</ButtonDownload>
         </div>
       </div>
-      <Person />
+
+      <picture>
+        <Image
+          src='/rubert_perfil.webp'
+          alt='Rubert Gonzalez - Desarrollador web front-end'
+          width={400}
+          height={400}
+        />
+      </picture>
     </header>
   )
 }
