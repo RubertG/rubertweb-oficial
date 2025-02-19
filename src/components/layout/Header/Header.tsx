@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
-import { Person } from '@/components/Icons/Icons'
 import { Button, ButtonDownload } from '../Button/Button'
 import Styles from './Header.module.scss'
 import Image from 'next/image'
